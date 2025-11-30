@@ -22,7 +22,7 @@ defmodule MagnetarWeb do
       use Phoenix.Controller, namespace: MagnetarWeb
 
       import Plug.Conn
-      import MagnetarWeb.Gettext
+      use Gettext, backend: MagnetarWeb.Gettext
       alias MagnetarWeb.Router.Helpers, as: Routes
     end
   end
@@ -54,7 +54,7 @@ defmodule MagnetarWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import MagnetarWeb.Gettext
+      use Gettext, backend: MagnetarWeb.Gettext
     end
   end
 
@@ -67,7 +67,7 @@ defmodule MagnetarWeb do
       import Phoenix.View
 
       import MagnetarWeb.ErrorHelpers
-      import MagnetarWeb.Gettext
+      use Gettext, backend: MagnetarWeb.Gettext
       alias MagnetarWeb.Router.Helpers, as: Routes
     end
   end
