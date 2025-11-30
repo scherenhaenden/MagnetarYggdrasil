@@ -6,7 +6,7 @@
 #include "cJSON.h"
 
 // Helper to send JSON response
-void http_response_json(struct http_request *req, int status, cJSON *json);
+void app_response_json(struct http_request *req, int status, cJSON *json);
 
 // Helper to read JSON body
 cJSON *http_read_json_body(struct http_request *req);
