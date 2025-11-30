@@ -1,0 +1,6 @@
+/app/JavaSpring/src/test/java/com/magnetaryggdrasil/javaspring/service/TaskServiceTest.java
+/app/JavaSpring/src/test/java/com/magnetaryggdrasil/javaspring/service/UserServiceTest.java
+/app/JavaSpring/src/test/java/com/magnetaryggdrasil/javaspring/JavaSpringApplicationTests.java
+/app/JavaSpring/src/test/java/com/magnetaryggdrasil/javaspring/controller/TaskControllerTest.java
+/app/JavaSpring/src/test/java/com/magnetaryggdrasil/javaspring/controller/UserControllerTest.java
+/app/JavaSpring/src/test/java/com/magnetaryggdrasil/javaspring/controller/HealthControllerTest.java
