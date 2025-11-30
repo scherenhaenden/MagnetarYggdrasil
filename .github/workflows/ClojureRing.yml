@@ -1,0 +1,28 @@
+name: ClojureRing Workflow
+'on':
+  push:
+    branches:
+    - project-run/ClojureRing
+  pull_request:
+    branches:
+    - project-run/ClojureRing
+jobs:
+  test:
+    name: Test ClojureRing
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ClojureRing
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '17'
+    - name: Setup Clojure
+      uses: DeLaGuardo/setup-clojure@v12
+      with:
+        tools-deps: latest
+    - name: Test
+      run: clojure -M:test

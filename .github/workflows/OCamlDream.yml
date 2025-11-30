@@ -1,0 +1,25 @@
+name: OCamlDream Workflow
+'on':
+  push:
+    branches:
+    - project-run/OCamlDream
+  pull_request:
+    branches:
+    - project-run/OCamlDream
+jobs:
+  test:
+    name: Test OCamlDream
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: OCamlDream
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup OCaml
+      uses: ocaml/setup-ocaml@v2
+      with:
+        ocaml-compiler: '5.0'
+    - name: Install Dependencies
+      run: opam install . --deps-only --with-test
+    - name: Test
+      run: opam exec -- dune runtest

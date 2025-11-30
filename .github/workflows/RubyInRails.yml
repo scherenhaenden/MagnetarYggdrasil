@@ -1,0 +1,26 @@
+name: RubyInRails Workflow
+'on':
+  push:
+    branches:
+    - project-run/RubyInRails
+  pull_request:
+    branches:
+    - project-run/RubyInRails
+jobs:
+  test:
+    name: Test RubyInRails
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: RubyInRails
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+    - name: Install Dependencies
+      run: bundle install
+    - name: Test
+      run: bundle exec rspec
