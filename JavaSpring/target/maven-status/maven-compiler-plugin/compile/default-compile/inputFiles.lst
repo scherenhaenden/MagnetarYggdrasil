@@ -1,0 +1,10 @@
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/service/TaskService.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/repository/UserRepository.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/service/UserService.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/controller/UserController.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/controller/HealthController.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/JavaSpringApplication.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/controller/TaskController.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/model/Task.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/repository/TaskRepository.java
+/app/JavaSpring/src/main/java/com/magnetaryggdrasil/javaspring/model/User.java
