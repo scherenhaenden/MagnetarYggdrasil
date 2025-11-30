@@ -1,0 +1,17 @@
+{application, magnetar,
+ [{description, "MagnetarYggdrasil implementation in Erlang/Cowboy"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {magnetar_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    cowboy,
+    jsx,
+    esqlite
+   ]},
+  {env,[]},
+  {modules, []},
+  {licenses, ["Apache-2.0"]},
+  {links, []}
+ ]}.
