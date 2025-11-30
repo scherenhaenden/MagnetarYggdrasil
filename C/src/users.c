@@ -1,5 +1,6 @@
 #include <kore/kore.h>
 #include <kore/http.h>
+#include <stdlib.h>
 #include "../include/models.h"
 #include "../include/db.h"
 #include "../include/helpers.h"
