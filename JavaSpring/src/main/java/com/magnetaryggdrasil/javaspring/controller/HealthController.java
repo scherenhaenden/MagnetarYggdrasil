@@ -10,6 +10,9 @@ import java.util.Map;
 public class HealthController {
 
     @GetMapping("/health")
+    /**
+     * Returns the health status of the application.
+     */
     public ResponseEntity<Map<String, String>> health() {
         return ResponseEntity.ok(Map.of("status", "ok"));
     }
