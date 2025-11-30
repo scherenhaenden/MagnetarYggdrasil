@@ -7,6 +7,9 @@ import java.util.List;
 
 @ApplicationScoped
 public class TaskRepository implements PanacheRepository<Task> {
+    /**
+     * Retrieves a list of tasks associated with the specified user ID.
+     */
     public List<Task> findByUserId(Long userId) {
         return find("user.id", userId).list();
     }
