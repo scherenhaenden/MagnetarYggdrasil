@@ -1,0 +1,12 @@
+com/magnetaryggdrasil/javaspring/model/User$UserBuilder.class
+com/magnetaryggdrasil/javaspring/controller/UserController.class
+com/magnetaryggdrasil/javaspring/controller/TaskController.class
+com/magnetaryggdrasil/javaspring/service/TaskService.class
+com/magnetaryggdrasil/javaspring/repository/UserRepository.class
+com/magnetaryggdrasil/javaspring/repository/TaskRepository.class
+com/magnetaryggdrasil/javaspring/controller/HealthController.class
+com/magnetaryggdrasil/javaspring/model/Task$TaskBuilder.class
+com/magnetaryggdrasil/javaspring/model/Task.class
+com/magnetaryggdrasil/javaspring/JavaSpringApplication.class
+com/magnetaryggdrasil/javaspring/model/User.class
+com/magnetaryggdrasil/javaspring/service/UserService.class
