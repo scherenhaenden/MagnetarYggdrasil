@@ -10,9 +10,9 @@ MagnetarYggdrasil exists to **compare Web APIs across programming languages** �
 > Build *one program* that exists simultaneously in *multiple technology worlds*
 > so we can finally see *which ones shine, which ones bleed and why.*
 
-Yggdrasil = el árbol que conecta mundos.
-Magnetar = la estrella más densa del universo.
-**MagnetarYggdrasil = un sistema que vive en todos los mundos tecnológicos simultáneamente.**
+Yggdrasil = the tree that connects worlds.
+Magnetar = the densest star in the universe.
+**MagnetarYggdrasil = a system that lives in all technological worlds simultaneously.**
 
 ---
 
@@ -38,7 +38,7 @@ Below is the full 35-technology table detailing the status of each ecosystem in 
 
 ### **🌌 MagnetarYggdrasil – Ecosystems Included**
 
-| Ecosistema                          | Status en este proyecto |
+| Ecosystem                           | Status in this project  |
 | ----------------------------------- | ----------------------- |
 | Rust (Actix/Axum)                   | ✔ Included              |
 | C++ (Drogon / oat++)                | ✔ Included              |
@@ -86,22 +86,22 @@ Below is the full 35-technology table detailing the status of each ecosystem in 
 
 ## 🏆 Final Comparative Table (The One Everyone Looks For)
 
-| Lenguaje / Framework         | Throughput (Req/s)   | Latencia alta carga | RAM         | DX - Velocidad de desarrollo   | ¿Es viable para Web API?         |
+| Language / Framework         | Throughput (Req/s)   | High Load Latency   | RAM         | DX - Development Speed         | Is it viable for Web API?        |
 | ---------------------------- | -------------------- | ------------------- | ----------- | ------------------------------ | -------------------------------- |
-| **Rust (Actix/Axum)**        | 🚀🚀🚀🚀🚀 *Extremo* | <1ms                | 🔥 Muy bajo | ⭐⭐ Difícil                     | **Sí. Mejor rendimiento total.** |
-| **C++ (Drogon)**             | 🚀🚀🚀🚀🚀 *Extremo* | <1ms                | Bajo        | ⭐ Muy difícil                  | Sí, niche sistemas críticos      |
-| **C (kore.io)**              | 🚀🚀🚀🚀🚀 (teórico) | ultra baja          | mínimo      | 💀 Pesadilla DX                | No recomendable general          |
-| **Go (Gin/Fiber)**           | 🚀🚀🚀🚀 (muy alto)  | 1–2ms               | bajo        | ⭐⭐⭐⭐ muy bueno                 | **Estándar cloud**               |
-| **C# .NET 10 AOT**           | 🚀🚀🚀🚀 (muy alto)  | ~1ms                | 30–50MB     | ⭐⭐⭐⭐⭐ excelente                | **Rivaliza con Go**              |
-| **Java (Spring)**            | 🚀🚀🚀 (alto)        | media               | alto        | ⭐⭐⭐ medio                      | Enterprise sólido                |
-| **Java (GraalVM)**           | 🚀🚀🚀🚀 (alto+)     | baja                | bajo        | ⭐⭐⭐ medio                      | Excelente microservicios         |
-| **Swift (Vapor)**            | 🚀🚀🚀 (alto)        | baja/media          | medio       | ⭐⭐⭐ niche                      | viable pero pequeño              |
-| **Node.js (Fastify/NestJS)** | 🚀🚀 (medio-alto)    | media               | medio       | ⭐⭐⭐⭐⭐ *MEJOR DX*               | Ideal para dev rápido            |
-| **Python (FastAPI)**         | 🚀 (bajo-medio)      | alta                | medio       | ⭐⭐⭐⭐⭐ *más rápido codificando* | producción con cuidado           |
-| **Zig std.http**             | 🚀🚀🚀🚀 (muy alto)  | <2ms                | bajísimo    | ⭐⭐⭐ media                      | excelente sistemas               |
-| **D (vibe.d)**               | 🚀🚀🚀🚀 (alto)      | baja                | medio/bajo  | ⭐⭐⭐⭐ muy bueno                 | subestimado                      |
-| **Nim (Jester/Prologue)**    | 🚀🚀🚀 (alto)        | baja                | baja        | ⭐⭐⭐⭐ agradable                 | sorprendente                     |
-| **Odin (manual)**            | 🚀🚀🚀 (variable)    | depende del dev     | bajo        | ⭐ difícil                      | requiere manos expertas          |
+| **Rust (Actix/Axum)**        | 🚀🚀🚀🚀🚀 *Extreme* | <1ms                | 🔥 Very low | ⭐⭐ Difficult                   | **Yes. Best total performance.** |
+| **C++ (Drogon)**             | 🚀🚀🚀🚀🚀 *Extreme* | <1ms                | Low         | ⭐ Very difficult               | Yes, niche critical systems      |
+| **C (kore.io)**              | 🚀🚀🚀🚀🚀 (theoretical)| ultra low           | minimal     | 💀 DX Nightmare                | Not generally recommended        |
+| **Go (Gin/Fiber)**           | 🚀🚀🚀🚀 (very high) | 1–2ms               | low         | ⭐⭐⭐⭐ very good                 | **Cloud standard**               |
+| **C# .NET 10 AOT**           | 🚀🚀🚀🚀 (very high) | ~1ms                | 30–50MB     | ⭐⭐⭐⭐⭐ excellent                | **Rivals Go**                    |
+| **Java (Spring)**            | 🚀🚀🚀 (high)        | medium              | high        | ⭐⭐⭐ medium                     | Solid Enterprise                 |
+| **Java (GraalVM)**           | 🚀🚀🚀🚀 (high+)     | low                 | low         | ⭐⭐⭐ medium                     | Excellent microservices          |
+| **Swift (Vapor)**            | 🚀🚀🚀 (high)        | low/medium          | medium      | ⭐⭐⭐ niche                      | viable but small                 |
+| **Node.js (Fastify/NestJS)** | 🚀🚀 (medium-high)   | medium              | medium      | ⭐⭐⭐⭐⭐ *BEST DX*                | Ideal for rapid dev              |
+| **Python (FastAPI)**         | 🚀 (low-medium)      | high                | medium      | ⭐⭐⭐⭐⭐ *fastest coding*         | production with care             |
+| **Zig std.http**             | 🚀🚀🚀🚀 (very high) | <2ms                | very low    | ⭐⭐⭐ medium                     | excellent systems                |
+| **D (vibe.d)**               | 🚀🚀🚀🚀 (high)      | low                 | medium/low  | ⭐⭐⭐⭐ very good                 | underrated                       |
+| **Nim (Jester/Prologue)**    | 🚀🚀🚀 (high)        | low                 | low         | ⭐⭐⭐⭐ pleasant                  | surprising                       |
+| **Odin (manual)**            | 🚀🚀🚀 (variable)    | depends on dev      | low         | ⭐ difficult                    | requires expert hands            |
 | **Carbon**                   | 🟡 Experimental      | -                   | -           | -                              | 🟡 Planned                       |
 | **Kotlin (Ktor)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
 | **Elixir (Phoenix)**         | Pending              | Pending             | Pending     | Pending                        | Pending                          |
