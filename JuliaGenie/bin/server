@@ -1,0 +1,9 @@
+#!/usr/bin/env julia
+using Pkg
+Pkg.activate(".")
+
+using Genie
+using JuliaGenie
+
+Genie.loadapp()
+up()
