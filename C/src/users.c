@@ -31,13 +31,13 @@ int handle_users(struct http_request *req) {
             cJSON_AddNumberToObject(resp, "id", id);
             cJSON_AddStringToObject(resp, "name", name->valuestring);
             cJSON_AddStringToObject(resp, "email", email->valuestring);
-            http_response_json(req, 201, resp);
+            app_response_json(req, 201, resp);
         } else {
              http_response(req, 409, "User already exists or error", 28);
         }
     } else if (req->method == HTTP_METHOD_GET) {
         cJSON *users = db_get_all_users();
-        http_response_json(req, 200, users);
+        app_response_json(req, 200, users);
     } else {
         http_response(req, 405, "Method Not Allowed", 18);
     }
@@ -67,7 +67,7 @@ int handle_users_id(struct http_request *req) {
             free(user->email);
             free(user);
 
-            http_response_json(req, 200, resp);
+            app_response_json(req, 200, resp);
         } else {
             http_response(req, 404, "User not found", 14);
         }
@@ -98,7 +98,7 @@ int handle_users_id(struct http_request *req) {
              free(user->name);
              free(user->email);
              free(user);
-             http_response_json(req, 200, resp);
+             app_response_json(req, 200, resp);
         } else {
              http_response(req, 404, "User not found or nothing to update", 33);
         }

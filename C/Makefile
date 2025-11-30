@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -pedantic -g
-LDFLAGS=-lkore -lsqlite3 -lm
+CFLAGS=-Wall -Wextra -pedantic -g -Ivendor/kore/include
+LDFLAGS=-lsqlite3 -lm
 
 SRC=src/main.c src/users.c src/tasks.c src/db.c src/helpers.c src/cJSON.c
 OBJ=$(SRC:.c=.o)
