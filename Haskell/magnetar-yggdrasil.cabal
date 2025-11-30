@@ -1,0 +1,79 @@
+cabal-version: 2.2
+name:           magnetar-yggdrasil
+version:        0.1.0.0
+synopsis:       MagnetarYggdrasil implementation in Haskell (Servant)
+description:    Haskell implementation of the MagnetarYggdrasil benchmark project using Servant and SQLite.
+license:        MIT
+license-file:   LICENSE
+author:         Jules
+maintainer:     jules@example.com
+category:       Web
+build-type:     Simple
+
+common common-options
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  default-language: Haskell2010
+
+library
+  import: common-options
+  hs-source-dirs: src
+  exposed-modules:
+      API
+      Config
+      Handlers
+      Models
+      Repository
+      Service
+  build-depends:
+      base >=4.7 && <5
+    , aeson
+    , bytestring
+    , directory
+    , http-media
+    , http-types
+    , mtl
+    , servant
+    , servant-server
+    , sqlite-simple
+    , text
+    , time
+    , transformers
+    , wai
+    , wai-extra
+    , wai-logger
+    , warp
+
+executable magnetar-yggdrasil-exe
+  import: common-options
+  hs-source-dirs: app
+  main-is: Main.hs
+  build-depends:
+      base >=4.7 && <5
+    , magnetar-yggdrasil
+    , sqlite-simple
+    , servant-server
+    , warp
+    , wai-extra
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+
+test-suite magnetar-yggdrasil-test
+  import: common-options
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is: Spec.hs
+  build-depends:
+      base >=4.7 && <5
+    , magnetar-yggdrasil
+    , aeson
+    , bytestring
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+    , http-types
+    , QuickCheck
+    , servant-server
+    , sqlite-simple
+    , text
+    , wai
+    , wai-extra
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N

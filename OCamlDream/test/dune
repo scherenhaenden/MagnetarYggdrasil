@@ -1,0 +1,4 @@
+(test
+ (name test_main)
+ (libraries magnetar.lib alcotest lwt lwt.unix caqti-driver-sqlite3)
+ (preprocess (pps lwt_ppx)))

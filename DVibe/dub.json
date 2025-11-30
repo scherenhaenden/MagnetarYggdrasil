@@ -1,0 +1,12 @@
+{
+	"name": "magnetar-dvibe",
+	"description": "MagnetarYggdrasil implementation in D with vibe.d",
+	"authors": ["Jules"],
+	"dependencies": {
+		"vibe-d": "~>0.10.0",
+		"d2sqlite3": "~>1.0.0"
+	},
+    "lflags-linux": ["-lsqlite3"],
+    "targetType": "executable",
+    "mainSourceFile": "source/app.d"
+}
