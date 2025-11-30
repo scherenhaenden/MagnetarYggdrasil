@@ -6,7 +6,6 @@ defmodule Magnetar.Todos do
   import Ecto.Query, warn: false
   alias Magnetar.Repo
   alias Magnetar.Todos.Task
-  alias Magnetar.Accounts.User
 
   def list_tasks_for_user(user_id) do
     # Verify user exists first? The requirement implies CRUD for tasks.
