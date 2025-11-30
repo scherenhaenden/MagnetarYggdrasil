@@ -201,18 +201,40 @@ bombardier -c 200 -d 30s http://localhost:8080/users
 ```
 /magnetar-yggdrasil
    /rust
-   /go
+   /cpp
+   /c
    /zig
+   /go
+   /dotnet
+   /java-spring
+   /java-graalvm
+   /swift
    /d
    /nim
    /odin
-   /c
-   /cpp
-   /dotnet
-   /java
    /node
    /python
-   ...
+   /carbon
+   /kotlin
+   /elixir
+   /erlang
+   /haskell
+   /ocaml
+   /fsharp
+   /scala
+   /ruby
+   /crystal
+   /php
+   /lua
+   /clojure
+   /racket
+   /julia
+   /v
+   /ada
+   /fortran
+   /bun
+   /wasm
+   /unison
 ```
 
 Each folder contains its own `README_RUN.md`.
