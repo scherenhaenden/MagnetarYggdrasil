@@ -18,6 +18,9 @@ public class TaskController {
     }
 
     @GetMapping("/{tid}")
+    /**
+     * Retrieves a task by its ID.
+     */
     public ResponseEntity<Task> getTaskById(@PathVariable Long tid) {
         return taskService.getTaskById(tid)
                 .map(ResponseEntity::ok)
@@ -25,6 +28,9 @@ public class TaskController {
     }
 
     @PutMapping("/{tid}")
+    /**
+     * Updates a task identified by its ID.
+     */
     public ResponseEntity<Task> updateTask(@PathVariable Long tid, @RequestBody Task task) {
         try {
             Task updatedTask = taskService.updateTask(tid, task);
@@ -35,6 +41,9 @@ public class TaskController {
     }
 
     @PatchMapping("/{tid}/done")
+    /**
+     * Marks a task as done and returns the updated task.
+     */
     public ResponseEntity<Task> markTaskAsDone(@PathVariable Long tid) {
         try {
             Task updatedTask = taskService.markTaskAsDone(tid);
@@ -45,6 +54,9 @@ public class TaskController {
     }
 
     @DeleteMapping("/{tid}")
+    /**
+     * Deletes a task by its ID.
+     */
     public ResponseEntity<Void> deleteTask(@PathVariable Long tid) {
         try {
             taskService.deleteTask(tid);

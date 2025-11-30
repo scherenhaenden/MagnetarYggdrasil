@@ -35,11 +35,17 @@ public class UserController {
     }
 
     @GetMapping
+    /**
+     * Retrieves all users.
+     */
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
     @GetMapping("/{id}")
+    /**
+     * Retrieves a user by their ID.
+     */
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         return userService.getUserById(id)
                 .map(ResponseEntity::ok)
@@ -60,6 +66,9 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    /**
+     * Deletes a user by their ID.
+     */
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         try {
             userService.deleteUser(id);
@@ -72,6 +81,9 @@ public class UserController {
     // Task endpoints related to user
 
     @PostMapping("/{id}/tasks")
+    /**
+     * Creates a new task for the specified user.
+     */
     public ResponseEntity<Task> createTask(@PathVariable Long id, @RequestBody Task task) {
         try {
             Task createdTask = taskService.createTask(id, task);
