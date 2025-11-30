@@ -12,6 +12,9 @@ public class HealthResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    /**
+     * Checks the health status of the application.
+     */
     public Response health() {
         return Response.ok(Map.of("status", "UP")).build();
     }
