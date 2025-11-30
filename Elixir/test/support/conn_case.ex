@@ -22,17 +22,11 @@ defmodule MagnetarWeb.ConnCase do
       # The default endpoint for testing
       @endpoint MagnetarWeb.Endpoint
 
-      use MagnetarWeb, :controller
-      use MagnetarWeb, :view
-
       import Plug.Conn
       import Phoenix.ConnTest
       import MagnetarWeb.ConnCase
 
       alias MagnetarWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint MagnetarWeb.Endpoint
     end
   end
 
