@@ -24,7 +24,7 @@ Nullable!User getUserById(long id) {
     stmt.bind(":id", id);
     auto results = stmt.execute();
     if (results.empty) return Nullable!User();
-    Row row = results.one();
+    auto row = results.front;
     return Nullable!User(User(row.peek!long(0), row.peek!string(1), row.peek!string(2)));
 }
 
@@ -100,7 +100,7 @@ Nullable!Task getTaskById(long id) {
     stmt.bind(":id", id);
     auto results = stmt.execute();
     if (results.empty) return Nullable!Task();
-    Row row = results.one();
+    auto row = results.front;
     return Nullable!Task(Task(
         row.peek!long(0),
         row.peek!long(1),
@@ -170,7 +170,7 @@ version(unittest) {
     import std.stdio;
 
     shared static this() {
-        if (exists("test_repo.db")) remove("test_repo.db");
+        if (exists("test_repo.db")) std.file.remove("test_repo.db");
         initDB("test_repo.db");
     }
 
