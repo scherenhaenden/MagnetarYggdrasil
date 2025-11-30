@@ -18,7 +18,10 @@ jobs:
     - name: Install Dependencies
       run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev libssl-dev
     - name: Install Kore
-      run: wget -qO - https://kore.io/install | bash
+      run: |
+        wget -qO kore-install.sh https://kore.io/install
+        chmod +x kore-install.sh
+        sudo ./kore-install.sh
     - name: Build
       working-directory: C
       run: make
