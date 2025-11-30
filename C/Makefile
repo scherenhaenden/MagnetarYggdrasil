@@ -20,7 +20,7 @@ else
     LDFLAGS += $(KORE_LDFLAGS)
 endif
 
-SRC=src/main.c src/users.c src/tasks.c src/db.c src/helpers.c src/cJSON.c
+SRC=src/main.c src/users.c src/tasks.c src/db.c src/helpers.c src/cJSON.c src/kore_stub.c
 OBJ=$(SRC:.c=.o)
 TARGET=kore.so
 
