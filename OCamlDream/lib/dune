@@ -1,0 +1,5 @@
+(library
+ (name magnetar_lib)
+ (public_name magnetar.lib)
+ (libraries dream caqti caqti.type caqti-driver-sqlite3 yojson ppx_yojson_conv_lib lwt)
+ (preprocess (pps ppx_yojson_conv lwt_ppx)))

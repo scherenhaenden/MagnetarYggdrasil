@@ -1,0 +1,18 @@
+(lang dune 3.0)
+(name magnetar)
+(generate_opam_files true)
+
+(package
+ (name magnetar)
+ (synopsis "Magnetar implementation in OCaml/Dream")
+ (description "A canonical web API implementation using Dream and Caqti")
+ (depends
+  (ocaml (>= 4.14))
+  (dune (>= 3.0))
+  (dream (>= 1.0.0))
+  (caqti (>= 2.0.0))
+  (caqti-driver-sqlite3 (>= 2.0.0))
+  (ppx_yojson_conv (>= 0.16.0))
+  (lwt_ppx (>= 2.1.0))
+  (alcotest (>= 1.7.0) :with-test)
+ ))
