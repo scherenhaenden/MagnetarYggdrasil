@@ -1,0 +1,53 @@
+metadata:
+  name: "MagnetarYggdrasil - Scala (Akka)"
+  description: "Scala implementation using Akka HTTP and SQLite"
+  start_date: "2024-05-24"
+
+stakeholders:
+  - name: "Jules"
+    role: "Developer"
+
+milestones:
+  - id: "ms-01"
+    name: "Project Initialization"
+    target_date: "2024-05-25"
+  - id: "ms-02"
+    name: "Core Implementation"
+    target_date: "2024-05-27"
+
+tasks:
+  - id: "task-101"
+    title: "Create canonical files"
+    owner: "Jules"
+    state: "done"
+  - id: "task-102"
+    title: "Setup Scala project structure"
+    owner: "Jules"
+    state: "in_progress"
+  - id: "task-201"
+    title: "Implement Domain Models"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-202"
+    title: "Implement Repository Layer"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-203"
+    title: "Implement Service Layer"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-204"
+    title: "Implement API Handlers"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-205"
+    title: "Write Tests"
+    owner: "Jules"
+    state: "planned"
+
+risks:
+  - description: "Complexity of Akka"
+    mitigation: "Use simple patterns"
+
+reporting:
+  enabled: false
