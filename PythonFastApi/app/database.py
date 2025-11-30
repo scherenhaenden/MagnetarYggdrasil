@@ -16,6 +16,7 @@ AsyncSessionLocal = sessionmaker(
 Base = declarative_base()
 
 async def get_db():
+    """Yield a database session."""
     async with AsyncSessionLocal() as session:
         yield session
 
