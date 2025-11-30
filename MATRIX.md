@@ -14,15 +14,15 @@ The goal is for every project to reach "Business Equal" status, meaning it fully
 | **Java (Spring Boot)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
 | **Swift (Vapor)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
 | **D (vibe.d)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
-| **Nim (Jester)** | ❌ | ❌ | ❌ | Pending |
-| **Odin (manual)** | ❌ | ❌ | ❌ | Pending |
-| **Node.js (Fastify)** | ❌ | ❌ | ❌ | Pending |
-| **Python (FastAPI)** | ❌ | ❌ | ❌ | Pending |
+| **Nim (Jester)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Odin (manual)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Node.js (Fastify)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Python (FastAPI)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
 | **Carbon** | ❌ | ❌ | ❌ | Planned |
-| **Kotlin (Ktor)** | ❌ | ❌ | ❌ | Pending |
-| **Elixir (Phoenix)** | ❌ | ❌ | ❌ | Pending |
-| **Erlang (Cowboy)** | ❌ | ❌ | ❌ | Pending |
-| **Haskell (Servant)** | ❌ | ❌ | ❌ | Pending |
+| **Kotlin (Ktor)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Elixir (Phoenix)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Erlang (Cowboy)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Haskell (Servant)** | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
 | **OCaml (Dream)** | ❌ | ❌ | ❌ | Pending |
 | **F# (.NET AOT)** | ❌ | ❌ | ❌ | Pending |
 | **Scala (Akka)** | ❌ | ❌ | ❌ | Pending |
