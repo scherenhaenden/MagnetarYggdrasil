@@ -32,7 +32,7 @@ It stores everything in **SQLite**, auto-creates DB on first run, exposes JSON H
 
 ## 🔥 Full Technology Stack Under Observation
 
-Here is the **full 35-technology table**, formatted EXACTLY like your original block — clean, consistent, and copy-paste-ready.
+Below is the full 35-technology table detailing the status of each ecosystem in this project.
 
 ---
 
@@ -102,6 +102,27 @@ Here is the **full 35-technology table**, formatted EXACTLY like your original b
 | **D (vibe.d)**               | 🚀🚀🚀🚀 (alto)      | baja                | medio/bajo  | ⭐⭐⭐⭐ muy bueno                 | subestimado                      |
 | **Nim (Jester/Prologue)**    | 🚀🚀🚀 (alto)        | baja                | baja        | ⭐⭐⭐⭐ agradable                 | sorprendente                     |
 | **Odin (manual)**            | 🚀🚀🚀 (variable)    | depende del dev     | bajo        | ⭐ difícil                      | requiere manos expertas          |
+| **Carbon**                   | 🟡 Experimental      | -                   | -           | -                              | 🟡 Planned                       |
+| **Kotlin (Ktor)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Elixir (Phoenix)**         | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Erlang (Cowboy)**          | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Haskell (Servant)**        | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **OCaml (Dream)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **F# (.NET AOT)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Scala (Akka/ZIO)**         | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Ruby (Rails)**             | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Crystal (Kemal)**          | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **PHP (Symfony)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Lua (OpenResty)**          | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Clojure (Ring)**           | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Racket**                   | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Julia (Genie)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **V (vweb)**                 | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Ada/SPARK**                | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Fortran**                  | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Bun**                      | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **WebAssembly**              | Pending              | Pending             | Pending     | Pending                        | Pending                          |
+| **Unison**                   | 🟡 Experimental      | -                   | -           | -                              | 🟡 Planned                       |
 
 ---
 
