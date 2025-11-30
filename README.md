@@ -16,71 +16,111 @@ Magnetar = the densest star in the universe.
 
 ---
 
-## 📍 **What this project does**
+## 🚦 Project Readiness & Status
 
-Every language must implement the same API and use SQLite:
+To track the progress of each technology implementation, we maintain a readiness matrix.
 
-```
-Users  → CRUD
-Tasks  → CRUD
-Health → /health
-```
+👉 **[View the Readiness Matrix (MATRIX.md)](./MATRIX.md)**
 
-It stores everything in **SQLite**, auto-creates DB on first run, exposes JSON HTTPS endpoints, and includes **100% test coverage** requirements.
+This matrix details which projects are implemented, which follow the Canonical Model, and which are "Business Equal" (fully compliant).
 
 ---
 
-## 🔥 Full Technology Stack Under Observation
+## 🏛 The Magnetar Canonical Project Model
 
-Below is the full 35-technology table detailing the status of each ecosystem in this project.
+Every project within MagnetarYggdrasil MUST follow the **Magnetar Canonical Project Model**. This ensures consistency not just in code, but in governance, planning, and documentation.
 
----
+If you are starting a new implementation or updating an existing one, you must refer to the Canonical Model prompts:
 
-### **🌌 MagnetarYggdrasil – Ecosystems Included**
+👉 **[Canonical Model Prompt List (CANONICAL_MODEL_PROMPTS.md)](./CANONICAL_MODEL_PROMPTS.md)**
 
-| Ecosystem                           | Status in this project  |
-| ----------------------------------- | ----------------------- |
-| Rust (Actix/Axum)                   | ✔ Included              |
-| C++ (Drogon / oat++)                | ✔ Included              |
-| C (kore.io / microhttpd)            | ✔ Included              |
-| Zig std.http                        | ✔ Included              |
-| Go (Gin / Fiber)                    | ✔ Included              |
-| C# (.NET 10 Native AOT)             | ✔ Included              |
-| Java (Spring Boot)                  | ✔ Included              |
-| Java (GraalVM Native Image)         | ✔ Included              |
-| Swift (Vapor)                       | ✔ Included              |
-| D (vibe.d / hunt)                   | ✔ Included              |
-| Nim (Jester / Prologue)             | ✔ Included              |
-| Odin (manual server)                | ✔ Included              |
-| Node.js (Fastify/NestJS)            | ✔ Included              |
-| Python (FastAPI / Uvicorn)          | ✔ Included              |
-| Carbon (Google successor attempt)   | 🟡 Experimental Planned |
-| Kotlin (Ktor / Vert.x)              | ✔ Included              |
-| Elixir (Phoenix)                    | ✔ Included              |
-| Erlang (Cowboy)                     | ✔ Included              |
-| Haskell (Servant/Yesod)             | ✔ Included              |
-| OCaml (Dream/Opium)                 | ✔ Included              |
-| F# (.NET AOT / Giraffe)             | ✔ Included              |
-| Scala (Akka HTTP/ZIO)               | ✔ Included              |
-| Ruby (Rails / Hanami)               | ✔ Included              |
-| Crystal (Kemal)                     | ✔ Included              |
-| PHP (Symfony / Laravel)             | ✔ Included              |
-| Lua (OpenResty)                     | ✔ Included              |
-| Clojure (Ring/Jetty)                | ✔ Included              |
-| Racket (web-server)                 | ✔ Included              |
-| Julia (Genie)                       | ✔ Included              |
-| V (vweb)                            | ✔ Included              |
-| Ada/SPARK                           | ✔ Included              |
-| Fortran (HTTP wrapper)              | ✔ Included              |
-| Bun (Ultra-fast JavaScript runtime) | ✔ Included              |
-| WebAssembly (Rust/Go/C++ WASI)      | ✔ Included              |
-| Unison (distributed FP language)    | 🟡 Experimental Planned |
+Use these prompts to generate the required documentation (`PLAN.md`, `BITACORA.md`, `RULES.md`, etc.) for your specific language implementation.
 
 ---
 
-### ✔ Total included: **35**
+## ⚖️ "Business Equal" Criteria
 
-(33 active + 2 experimental future targets) 35 code bases to build and compare!
+For a project to be considered **Business Equal** and valid for testing/benchmarking, it **MUST** rigorously adhere to the following checklist. Deviations are not allowed, as they invalid the scientific comparison.
+
+### 1. 🔌 API Interface Compliance (Strict)
+
+The application MUST expose the following HTTP JSON endpoints with the exact status codes and payload formats.
+
+#### **Users Resource**
+*   `POST /users`
+    *   **Input:** JSON `{ "username": "string", "email": "string" }`
+    *   **Output:** JSON `{ "id": integer, "username": "string", "email": "string" }` (HTTP 201)
+    *   **Error:** HTTP 400 if invalid.
+*   `GET /users`
+    *   **Output:** JSON array of users `[ { ... }, { ... } ]` (HTTP 200)
+*   `GET /users/{id}`
+    *   **Output:** JSON user object (HTTP 200)
+    *   **Error:** HTTP 404 if not found.
+*   `PUT /users/{id}`
+    *   **Input:** JSON `{ "username": "string" }` (Partial updates allowed)
+    *   **Output:** JSON user object (HTTP 200)
+*   `DELETE /users/{id}`
+    *   **Output:** HTTP 204 No Content.
+
+#### **Tasks Resource**
+*   `POST /users/{id}/tasks`
+    *   **Input:** JSON `{ "title": "string", "description": "string" }`
+    *   **Output:** JSON task object `{ "id": integer, "user_id": integer, "title": "...", "description": "...", "done": boolean }` (HTTP 201)
+*   `GET /users/{id}/tasks`
+    *   **Output:** JSON array of tasks for that user (HTTP 200)
+*   `GET /tasks/{id}`
+    *   **Output:** JSON task object (HTTP 200)
+*   `PUT /tasks/{id}`
+    *   **Input:** JSON `{ "title": "...", "description": "..." }`
+    *   **Output:** Updated task object (HTTP 200)
+*   `PATCH /tasks/{id}/done`
+    *   **Input:** None (or JSON `{ "done": true }`)
+    *   **Output:** Updated task object with `done=true` (HTTP 200)
+*   `DELETE /tasks/{id}`
+    *   **Output:** HTTP 204 No Content.
+
+#### **System**
+*   `GET /health`
+    *   **Output:** JSON `{ "status": "ok", "version": "1.0.0" }` (HTTP 200)
+
+---
+
+### 2. 🗄 Database Compliance (SQLite)
+
+*   **Engine:** SQLite3 MUST be used.
+*   **Auto-Creation:** The application MUST check for the existence of the database file on startup. If missing, it MUST create it and apply the schema automatically.
+*   **Foreign Keys:** Foreign Key constraints MUST be enabled (`PRAGMA foreign_keys = ON;`).
+*   **Schema:**
+    *   `users` table: `id` (PK, Auto Inc), `username` (Text, Unique), `email` (Text, Unique).
+    *   `tasks` table: `id` (PK, Auto Inc), `user_id` (FK -> users.id, On Delete Cascade), `title` (Text), `description` (Text), `done` (Boolean/Int).
+
+---
+
+### 3. 🏗 Architecture Compliance
+
+The code MUST follow a specific Layered Architecture to ensure code metrics (LOC, complexity) are comparable.
+
+*   **Controller Layer (Handlers):** Responsible ONLY for HTTP request parsing, calling the Service, and HTTP response formatting. No business logic here.
+*   **Service Layer:** Contains the business logic (validations, calls to repository).
+*   **Repository Layer:** Responsible ONLY for SQL queries and database interaction. No HTTP knowledge here.
+*   **Models/DTOs:** Plain objects used to transfer data between layers.
+
+---
+
+### 4. 🧪 Testing Compliance
+
+*   **Coverage:** 100% Code Coverage is the target.
+*   **Unit Tests:** Mock the database/repository to test Service logic.
+*   **Integration Tests:** Use an in-memory SQLite database or a temporary file to test the full Repository -> Service -> Controller flow.
+*   **End-to-End Tests:** A script that boots the server and runs `curl` or HTTP client requests against the live API.
+
+---
+
+### 5. 📜 Governance Compliance
+
+The project directory MUST contain:
+*   `README_RUN.md`: Instructions to build and run the specific project.
+*   `PLAN.md`, `BITACORA.md`, `STATUS.md`, etc., generated from the **Canonical Model Prompts**.
 
 ---
 
@@ -103,96 +143,8 @@ Below is the full 35-technology table detailing the status of each ecosystem in 
 | **Nim (Jester/Prologue)**    | 🚀🚀🚀 (high)        | low                 | low         | ⭐⭐⭐⭐ pleasant                  | surprising                       |
 | **Odin (manual)**            | 🚀🚀🚀 (variable)    | depends on dev      | low         | ⭐ difficult                    | requires expert hands            |
 | **Carbon**                   | 🟡 Experimental      | -                   | -           | -                              | 🟡 Planned                       |
-| **Kotlin (Ktor)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Elixir (Phoenix)**         | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Erlang (Cowboy)**          | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Haskell (Servant)**        | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **OCaml (Dream)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **F# (.NET AOT)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Scala (Akka/ZIO)**         | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Ruby (Rails)**             | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Crystal (Kemal)**          | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **PHP (Symfony)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Lua (OpenResty)**          | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Clojure (Ring)**           | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Racket**                   | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Julia (Genie)**            | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **V (vweb)**                 | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Ada/SPARK**                | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Fortran**                  | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Bun**                      | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **WebAssembly**              | Pending              | Pending             | Pending     | Pending                        | Pending                          |
-| **Unison**                   | 🟡 Experimental      | -                   | -           | -                              | 🟡 Planned                       |
 
----
-
-## 🏗 Architecture (Identical in Every Language)
-
-```
-┌──────────────────────────┐
-│        API Layer         │ ← HTTP + JSON
-└────────────▲─────────────┘
-             │
-┌────────────┴─────────────┐
-│      Service Layer       │ ← Business rules & validation
-└────────────▲─────────────┘
-             │
-┌────────────┴─────────────┐
-│    Repository Layer      │ ← SQLite CRUD
-└────────────▲─────────────┘
-             │
-┌────────────┴─────────────┐
-│      Storage Layer       │ ← DB file + migrations
-└──────────────────────────┘
-```
-
----
-
-## 📚 Functional Specification
-
-### **Users**
-
-| Method | Route       | Body fields   |
-| ------ | ----------- | ------------- |
-| POST   | /users      | name, email   |
-| GET    | /users      | —             |
-| GET    | /users/{id} | —             |
-| PUT    | /users/{id} | name?, email? |
-| DELETE | /users/{id} | —             |
-
-### **Tasks**
-
-| Method | Route             | Fields             |
-| ------ | ----------------- | ------------------ |
-| POST   | /users/{id}/tasks | title, description |
-| GET    | /users/{id}/tasks | —                  |
-| GET    | /tasks/{tid}      | —                  |
-| PUT    | /tasks/{tid}      | updates            |
-| PATCH  | /tasks/{tid}/done | —                  |
-| DELETE | /tasks/{tid}      | —                  |
-
-### **DB**
-
-* SQLite file auto-creates
-* Foreign keys strict
-* Indices for performance
-
----
-
-## 🧪 Testing Requirements — **100% Coverage Required**
-
-| Test Type   | Must include                          |
-| ----------- | ------------------------------------- |
-| Unit tests  | validation, logic & failure paths     |
-| Repo tests  | CRUD, FK, constraint errors           |
-| Integration | HTTP real requests JSON+SQLite        |
-| End-to-End  | full scenario: users → tasks → delete |
-
-Benchmark command for all languages:
-
-```
-bombardier -c 200 -d 30s http://localhost:8080/users
-```
+(See `MATRIX.md` for the full list of planned and active projects)
 
 ---
 
@@ -200,22 +152,19 @@ bombardier -c 200 -d 30s http://localhost:8080/users
 
 ```
 /magnetar-yggdrasil
-   /rust
-   /go
-   /zig
-   /d
-   /nim
-   /odin
-   /c
-   /cpp
-   /dotnet
-   /java
-   /node
-   /python
-   ...
+   /Rust
+   /Cpp
+   /C
+   /Zig
+   /Go
+   /CSharp
+   /JavaSpring
+   /Swift
+   /DVibe
+   ... (see MATRIX.md)
 ```
 
-Each folder contains its own `README_RUN.md`.
+Each folder contains its own `README_RUN.md` and Canonical Model documentation.
 
 ---
 
@@ -234,4 +183,3 @@ You will feel friction.
 You will discover what Google, Meta, Amazon and Microsoft already learned.
 
 And *you will know it for real — because you built all worlds yourself.*
-
