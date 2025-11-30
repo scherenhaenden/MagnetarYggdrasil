@@ -1,0 +1,23 @@
+name: CrystalKemal Workflow
+'on':
+  push:
+    branches:
+    - project-run/CrystalKemal
+  pull_request:
+    branches:
+    - project-run/CrystalKemal
+jobs:
+  test:
+    name: Test CrystalKemal
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: CrystalKemal
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Crystal
+      uses: crystal-lang/install-crystal@v1
+    - name: Install Dependencies
+      run: shards install
+    - name: Test
+      run: crystal spec

@@ -1,0 +1,23 @@
+name: Vvweb Workflow
+'on':
+  push:
+    branches:
+    - project-run/Vvweb
+  pull_request:
+    branches:
+    - project-run/Vvweb
+jobs:
+  test:
+    name: Test Vvweb
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Vvweb
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup V
+      uses: vlang/setup-v@v1.3
+    - name: Install Dependencies
+      run: sudo apt-get install -y libsqlite3-dev
+    - name: Test
+      run: v test .

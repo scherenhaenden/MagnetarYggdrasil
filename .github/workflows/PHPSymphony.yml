@@ -1,0 +1,26 @@
+name: PHPSymphony Workflow
+'on':
+  push:
+    branches:
+    - project-run/PHPSymphony
+  pull_request:
+    branches:
+    - project-run/PHPSymphony
+jobs:
+  test:
+    name: Test PHPSymphony
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: PHPSymphony
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: sqlite3
+    - name: Install Dependencies
+      run: composer install --prefer-dist --no-progress
+    - name: Test
+      run: php bin/phpunit

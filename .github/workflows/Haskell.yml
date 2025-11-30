@@ -1,0 +1,26 @@
+name: Haskell Workflow
+'on':
+  push:
+    branches:
+    - project-run/Haskell
+  pull_request:
+    branches:
+    - project-run/Haskell
+jobs:
+  test:
+    name: Test Haskell
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Haskell
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Haskell
+      uses: haskell/actions/setup@v2
+      with:
+        ghc-version: '9.4'
+        cabal-version: '3.10'
+    - name: Update Cabal
+      run: cabal update
+    - name: Test
+      run: cabal test

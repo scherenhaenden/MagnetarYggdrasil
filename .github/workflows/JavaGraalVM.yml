@@ -1,0 +1,24 @@
+name: JavaGraalVM Workflow
+'on':
+  push:
+    branches:
+    - project-run/JavaGraalVM
+  pull_request:
+    branches:
+    - project-run/JavaGraalVM
+jobs:
+  test:
+    name: Test JavaGraalVM
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: JavaGraalVM
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup GraalVM
+      uses: graalvm/setup-graalvm@v1
+      with:
+        java-version: '21'
+        distribution: graalvm
+    - name: Test
+      run: ./mvnw test

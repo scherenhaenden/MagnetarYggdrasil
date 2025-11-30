@@ -1,0 +1,26 @@
+name: Cpp Workflow
+'on':
+  push:
+    branches:
+    - project-run/Cpp
+  pull_request:
+    branches:
+    - project-run/Cpp
+jobs:
+  test:
+    name: Test Cpp
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Cpp
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev uuid-dev
+        openssl libssl-dev zlib1g-dev
+    - name: Configure
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
+    - name: Build
+      run: cmake --build build
+    - name: Test
+      run: cd build && ctest --output-on-failure

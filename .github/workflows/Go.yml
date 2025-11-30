@@ -1,0 +1,23 @@
+name: Go Workflow
+'on':
+  push:
+    branches:
+    - project-run/Go
+  pull_request:
+    branches:
+    - project-run/Go
+jobs:
+  test:
+    name: Test Go
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Go
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    - name: Test
+      run: go test ./...

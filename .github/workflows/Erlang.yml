@@ -1,0 +1,24 @@
+name: Erlang Workflow
+'on':
+  push:
+    branches:
+    - project-run/Erlang
+  pull_request:
+    branches:
+    - project-run/Erlang
+jobs:
+  test:
+    name: Test Erlang
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Erlang
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Erlang
+      uses: erlef/setup-beam@v1
+      with:
+        otp-version: '26.0'
+        version-type: strict
+    - name: Test
+      run: rebar3 ct
