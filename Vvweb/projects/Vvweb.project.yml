@@ -1,0 +1,45 @@
+metadata:
+  name: "V (vweb)"
+  description: "V implementation using vweb framework"
+  start_date: "2024-10-27"
+
+stakeholders:
+  - name: "Jules"
+    role: "Developer"
+
+milestones:
+  - id: "ms-01"
+    name: "Project Initialization"
+    target_date: "2024-10-27"
+  - id: "ms-02"
+    name: "Implementation"
+    target_date: "2024-10-28"
+
+tasks:
+  - id: "task-001"
+    title: "Create Canonical Docs"
+    owner: "Jules"
+    state: "done"
+  - id: "task-002"
+    title: "Implement Models"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-003"
+    title: "Implement Repository"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-004"
+    title: "Implement Service"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-005"
+    title: "Implement API"
+    owner: "Jules"
+    state: "planned"
+  - id: "task-006"
+    title: "Implement Tests"
+    owner: "Jules"
+    state: "planned"
+
+risks:
+  - description: "V ecosystem stability"
