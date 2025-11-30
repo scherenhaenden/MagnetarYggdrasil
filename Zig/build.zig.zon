@@ -1,0 +1,15 @@
+.{
+    .name = "magnetar-yggdrasil-zig",
+    .version = "0.0.1",
+    .dependencies = .{
+        .sqlite = .{
+            .url = "git+https://github.com/vrischmann/zig-sqlite#master",
+            .hash = "12200000000000000000000000000000000000000000000000000000000000000000",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
