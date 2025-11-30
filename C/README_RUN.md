@@ -7,7 +7,7 @@
 
 ## Build
 ```bash
-kodre build
+kodev build
 # OR manually
 make
 ```

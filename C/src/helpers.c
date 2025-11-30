@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void http_response_json(struct http_request *req, int status, cJSON *json) {
+void app_response_json(struct http_request *req, int status, cJSON *json) {
     char *json_str = cJSON_PrintUnformatted(json);
     http_response(req, status, json_str, strlen(json_str));
     free(json_str);
