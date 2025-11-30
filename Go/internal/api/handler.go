@@ -21,6 +21,7 @@ func (h *Handler) Health(c *gin.Context) {
 	c.Status(http.StatusOK)
 }
 
+// CreateUser handles the creation of a new user from the request context.
 func (h *Handler) CreateUser(c *gin.Context) {
 	var user model.User
 	if err := c.ShouldBindJSON(&user); err != nil {
@@ -34,6 +35,7 @@ func (h *Handler) CreateUser(c *gin.Context) {
 	c.JSON(http.StatusCreated, user)
 }
 
+// GetAllUsers retrieves all users and returns them in JSON format.
 func (h *Handler) GetAllUsers(c *gin.Context) {
 	users, err := h.svc.GetAllUsers()
 	if err != nil {
@@ -57,6 +59,7 @@ func (h *Handler) GetUser(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
+// UpdateUser handles the HTTP request to update a user by ID.
 func (h *Handler) UpdateUser(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -76,6 +79,7 @@ func (h *Handler) UpdateUser(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
+// DeleteUser handles the deletion of a user by their ID.
 func (h *Handler) DeleteUser(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -91,6 +95,7 @@ func (h *Handler) DeleteUser(c *gin.Context) {
 
 // Tasks
 
+// CreateTask handles the creation of a new task for a user.
 func (h *Handler) CreateTask(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -109,6 +114,7 @@ func (h *Handler) CreateTask(c *gin.Context) {
 	c.JSON(http.StatusCreated, task)
 }
 
+// GetAllTasks retrieves all tasks for a specific user identified by the user ID in the request context.
 func (h *Handler) GetAllTasks(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -123,6 +129,7 @@ func (h *Handler) GetAllTasks(c *gin.Context) {
 	c.JSON(http.StatusOK, tasks)
 }
 
+// GetTask retrieves a task by its ID from the context and returns it as JSON.
 func (h *Handler) GetTask(c *gin.Context) {
 	tid, err := strconv.Atoi(c.Param("tid"))
 	if err != nil {
@@ -137,6 +144,7 @@ func (h *Handler) GetTask(c *gin.Context) {
 	c.JSON(http.StatusOK, task)
 }
 
+// UpdateTask updates a task based on the provided task ID and JSON updates.
 func (h *Handler) UpdateTask(c *gin.Context) {
 	tid, err := strconv.Atoi(c.Param("tid"))
 	if err != nil {
@@ -156,6 +164,7 @@ func (h *Handler) UpdateTask(c *gin.Context) {
 	c.JSON(http.StatusOK, task)
 }
 
+// MarkTaskDone marks a task as done based on the task ID provided in the request context.
 func (h *Handler) MarkTaskDone(c *gin.Context) {
 	tid, err := strconv.Atoi(c.Param("tid"))
 	if err != nil {
