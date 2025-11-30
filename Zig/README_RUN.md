@@ -1,21 +1,28 @@
-# Zig Implementation
-
-This directory contains the Zig implementation of the MagnetarYggdrasil benchmark project.
+# Zig std.http Implementation
 
 ## Prerequisites
+- Zig 0.13.0 or later.
+- Internet connection to fetch dependencies (sqlite).
 
-- [Zig](https://ziglang.org/) (latest stable, e.g., 0.12.0 or 0.13.0)
-- SQLite3 development libraries (usually installed by default on many systems, or install via package manager)
+## How to Run
 
-## Running
+1.  Navigate to the directory:
+    ```bash
+    cd Zig
+    ```
 
-To run the server:
+2.  Run the application:
+    ```bash
+    zig build run
+    ```
 
-```bash
-zig build run
-```
+    *Note: The first run might fail with a checksum mismatch for dependencies. If this happens, please run the command provided in the error message to update the hash in `build.zig.zon`.*
 
-The server listens on `http://0.0.0.0:8080`.
+    This will:
+    - Download dependencies.
+    - Compile the project.
+    - Create the SQLite database (`database.db`) if it doesn't exist.
+    - Start the server on `http://127.0.0.1:8080`.
 
 ## Testing
 
@@ -27,14 +34,9 @@ zig build test
 
 ## Structure
 
-- `src/main.zig`: Entry point and HTTP server.
-- `src/handlers.zig`: HTTP request handlers.
-- `src/service.zig`: Business logic.
-- `src/repository.zig`: Database interaction using `zig-sqlite`.
-- `src/db.zig`: Database connection and schema initialization.
-- `src/models.zig`: Data structures.
-- `src/tests.zig`: Integration tests.
-
-## Dependencies
-
-- `zig-sqlite` (vendored/fetched via `build.zig.zon`)
+- `src/main.zig`: Entry point.
+- `src/api/`: HTTP server, routing, and handlers.
+- `src/service/`: Business logic.
+- `src/repository/`: Database access.
+- `src/storage/`: Database connection and migrations.
+- `src/models/`: Data structures.
