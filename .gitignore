@@ -1,1 +1,3 @@
 _build/
+CSharp/src/MagnetarYggdrasil/obj/
+CSharp/tests/MagnetarYggdrasil.Tests/obj/
