@@ -7,6 +7,15 @@ export class Router {
         this.handlers = handlers;
     }
 
+    /**
+     * Handles incoming HTTP requests and routes them to the appropriate handler.
+     *
+     * The function parses the request URL to determine the path and method, then matches them against predefined routes for health checks, user management, and task management.
+     * It invokes the corresponding handler methods based on the matched route and HTTP method, returning the appropriate response or a 404 error if no match is found.
+     *
+     * @param req - The incoming HTTP request object.
+     * @returns A Promise that resolves to a Response object.
+     */
     async handle(req: Request): Promise<Response> {
         const url = new URL(req.url);
         const path = url.pathname;
