@@ -21,16 +21,19 @@ REPO_OWNER = "scherenhaenden"
 REPO_NAME = "MagnetarYggdrasil"
 
 def load_matrix(file_path):
+    """Load a matrix from a file."""
     if not file_path.exists():
         return None
     with open(file_path, "r", encoding="utf-8") as f:
         return f.readlines()
 
 def save_matrix(file_path, lines):
+    """Saves the given lines to a file at the specified path."""
     with open(file_path, "w", encoding="utf-8") as f:
         f.writelines(lines)
 
 def run_test(project_dir, cmd):
+    """Run a test command in the specified project directory."""
     print(f"Running test for {project_dir}: {cmd}")
     try:
         # Run the command inside the project directory
@@ -53,6 +56,7 @@ def run_test(project_dir, cmd):
 
 def find_project_yaml(directory):
     # Look for projects/<Project>.project.yml
+    """Find the first .project.yml file in the projects directory."""
     projects_dir = directory / "projects"
     if projects_dir.exists():
         for file in projects_dir.glob("*.project.yml"):
@@ -61,11 +65,26 @@ def find_project_yaml(directory):
 
 def normalize_name(name):
     # Normalize "C (kore.io)" to something we can match with directory or yaml name
+    """Normalize a name for matching with directory or YAML names."""
     return name.lower().replace("*", "").strip()
 
 def get_row_index_for_project(lines, project_name, project_dir_name):
-    """
-    Finds the row index in the markdown table for a given project.
+    """Find the row index in the markdown table for a given project.
+    
+    This function iterates through the provided lines of a markdown table to locate
+    the row index corresponding to a specified project. It skips lines that do not
+    start with a pipe character or are part of the header or separator. The
+    function normalizes the project name and directory name, then checks for
+    matches in the ecosystem cell of each row, returning the index of the first
+    match found.
+    
+    Args:
+        lines (list): A list of strings representing the lines of the markdown table.
+        project_name (str): The name of the project to find.
+        project_dir_name (str): The directory name associated with the project.
+    
+    Returns:
+        int: The index of the row containing the project, or -1 if not found.
     """
     for i, line in enumerate(lines):
         if not line.strip().startswith("|"):
@@ -97,6 +116,7 @@ def get_row_index_for_project(lines, project_name, project_dir_name):
     return -1
 
 def update_table_status(lines, row_index, passed=None, badge_url=None):
+    """Update the test status in a specified row of a table."""
     line = lines[row_index]
     columns = line.split("|")
 
@@ -113,6 +133,16 @@ def update_table_status(lines, row_index, passed=None, badge_url=None):
     return lines
 
 def main():
+    """Process project directories and update validation status in matrices.
+    
+    The function loads matrix data from specified files and iterates through
+    directories in the root. For each directory, it attempts to find a YAML
+    configuration file, from which it extracts project metadata and validation
+    commands. Depending on the presence of a workflow or command, it either
+    constructs a badge for the project or runs tests locally. The results are then
+    updated in the corresponding matrices, which are saved at the end of the
+    process.
+    """
     matrix_lines = load_matrix(MATRIX_FILE)
     readme_lines = load_matrix(README_FILE)
 
