@@ -25,7 +25,7 @@ The goal is for every project to reach "Business Equal" status, meaning it fully
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | **Ada/SPARK** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Pending |
 | **Bun** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Pending |
-| **C (kore.io)** | ✅ | ✅ | ✅ | ✅ | ❓ | ❌ | Validating Business Equal |
+| **C (kore.io)** | ✅ | ✅ | ✅ | ✅ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/CKore.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/CKore.yml) | ❌ | Validating Business Equal |
 | **C# (.NET 10 Native AOT)** | ✅ | ❌ | ✅ | ❌ | ❓ | ❌ | Implementation exists, needs Canonical files, needs Docker |
 | **C++ (Drogon)** | ✅ | ❌ | ✅ | ❌ | ❓ | ❌ | Implementation exists, needs Canonical files, needs Docker |
 | **Carbon** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Planned |
