@@ -20,7 +20,7 @@ test_api :: proc(t: ^testing.T) {
     }
 
     // 2. Create User
-    var user_id: int
+    user_id: int
     {
         body := `{"name": "Alice", "email": "alice@example.com"}`
         req := server.Request{method="POST", path="/users", body=body}
