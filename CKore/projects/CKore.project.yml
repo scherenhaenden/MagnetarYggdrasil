@@ -66,3 +66,7 @@ tasks:
 risks:
   - description: "Kore build system complexity"
     mitigation: "Use standard Makefile"
+
+validation:
+  cmd: "make test"
+  workflow: "CKore.yml"
