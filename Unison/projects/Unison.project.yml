@@ -1,0 +1,53 @@
+project:
+  metadata:
+    name: Unison
+    description: Unison implementation of the Magnetar standard.
+    start_date: 2025-12-01
+    language: Unison
+    framework: Unison Standard Lib / Custom
+  stakeholders:
+    - name: Jules
+      role: Developer
+  milestones:
+    - id: ms-01
+      name: Project Initiation
+      target_date: 2024-05-30
+    - id: ms-02
+      name: Core Implementation
+      target_date: 2024-06-15
+    - id: ms-03
+      name: Feature Complete
+      target_date: 2024-06-30
+  tasks:
+    - id: task-101
+      title: Create Canonical Files
+      owner: Jules
+      state: in_progress
+      milestone: ms-01
+    - id: task-102
+      title: Implement HTTP Server
+      owner: Jules
+      state: planned
+      milestone: ms-02
+    - id: task-103
+      title: Implement SQLite
+      owner: Jules
+      state: planned
+      milestone: ms-02
+    - id: task-104
+      title: Implement API Handlers
+      owner: Jules
+      state: planned
+      milestone: ms-03
+    - id: task-105
+      title: Write Tests
+      owner: Jules
+      state: planned
+      milestone: ms-03
+  risks:
+    - id: risk-01
+      description: Unison local ecosystem maturity.
+      probability: High
+      impact: Medium
+  validation:
+    cmd: "echo 'Unison tests handled manually'"

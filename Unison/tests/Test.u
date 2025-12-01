@@ -1,0 +1,24 @@
+
+use .Domain
+use .Repository
+use .Service
+use .Handler
+
+test.flow : '{IO} [Result]
+test.flow = 'let
+  initialStore = Store Map.empty Map.empty 1 1
+
+  testLogic = 'let
+    -- Test Create User
+    user = Service.registerUser "Alice" "alice@example.com"
+    expect (user.name == "Alice")
+
+    -- Test Get All Users
+    users = Service.getAllUsers
+    expect (List.size users == 1)
+
+  -- Run the test logic with handlers
+  handled = '(handleInMemory initialStore (handleServiceWithDb !testLogic))
+
+  !handled
+  [Ok "Tests passed"]
