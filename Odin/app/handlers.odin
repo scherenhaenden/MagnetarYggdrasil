@@ -86,7 +86,7 @@ handle_request :: proc(req: server.Request) -> server.Response {
 // User Handlers
 
 create_user :: proc(body: string) -> server.Response {
-    var payload User_Payload
+    payload: User_Payload
     err := json.unmarshal_string(body, &payload)
     if err != nil {
          return server.Response{400, `{"error": "invalid json"}`}
@@ -126,7 +126,7 @@ list_users :: proc() -> server.Response {
 
     sqlite.prepare_v2(db_conn, c_sql, -1, &stmt, nil)
 
-    var users [dynamic]User
+    users: [dynamic]User
     defer delete(users)
 
     for sqlite.step(stmt) == sqlite.ROW {
@@ -192,7 +192,7 @@ delete_user :: proc(id: int) -> server.Response {
 }
 
 update_user :: proc(id: int, body: string) -> server.Response {
-    var payload User_Payload
+    payload: User_Payload
     err := json.unmarshal_string(body, &payload)
     if err != nil { return server.Response{400, `{"error": "bad json"}`} }
 
@@ -229,7 +229,7 @@ update_user :: proc(id: int, body: string) -> server.Response {
 // Task Handlers
 
 create_task :: proc(user_id: int, body: string) -> server.Response {
-    var payload Task_Payload
+    payload: Task_Payload
     err := json.unmarshal_string(body, &payload)
     if err != nil { return server.Response{400, `{"error": "bad json"}`} }
 
@@ -267,7 +267,7 @@ list_tasks :: proc(user_id: int) -> server.Response {
     sqlite.prepare_v2(db_conn, c_sql, -1, &stmt, nil)
     sqlite.bind_int(stmt, 1, c.int(user_id))
 
-    var tasks [dynamic]Task
+    tasks: [dynamic]Task
     defer delete(tasks)
 
     for sqlite.step(stmt) == sqlite.ROW {
@@ -337,7 +337,7 @@ delete_task :: proc(id: int) -> server.Response {
 }
 
 update_task :: proc(id: int, body: string) -> server.Response {
-    var payload Task_Update_Payload
+    payload: Task_Update_Payload
     err := json.unmarshal_string(body, &payload)
     if err != nil { return server.Response{400, `{"error": "bad json"}`} }
 
