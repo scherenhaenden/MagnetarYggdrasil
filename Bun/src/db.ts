@@ -8,6 +8,9 @@ export class DB {
         this.init();
     }
 
+    /**
+     * Initializes the database by creating users and tasks tables if they do not exist.
+     */
     private init() {
         this.db.run(`
             CREATE TABLE IF NOT EXISTS users (
@@ -33,6 +36,9 @@ export class DB {
         return this.db;
     }
 
+    /**
+     * Closes the database connection.
+     */
     close() {
         this.db.close();
     }
