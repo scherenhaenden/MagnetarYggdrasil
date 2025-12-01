@@ -1,114 +1,112 @@
 metadata:
-  name: "PHPSymphony"
-  description: "PHP Symfony implementation of MagnetarYggdrasil"
-  start_date: "2024-05-24"
-  version: "1.0.0"
-
+  name: PHPSymphony
+  description: PHP Symfony implementation of MagnetarYggdrasil
+  start_date: '2024-05-24'
+  version: 1.0.0
 stakeholders:
-  - name: "Jules"
-    role: "Lead Developer"
-  - name: "User"
-    role: "Product Owner"
-
+- name: Jules
+  role: Lead Developer
+- name: User
+  role: Product Owner
 milestones:
-  - id: "ms-01"
-    name: "Project Setup & Scaffold"
-    target_date: "2024-05-25"
-    status: "in_progress"
-  - id: "ms-02"
-    name: "Database & Entities"
-    target_date: "2024-05-26"
-    status: "planned"
-  - id: "ms-03"
-    name: "Core API Implementation"
-    target_date: "2024-05-27"
-    status: "planned"
-  - id: "ms-04"
-    name: "Testing & Refinement"
-    target_date: "2024-05-28"
-    status: "planned"
-
+- id: ms-01
+  name: Project Setup & Scaffold
+  target_date: '2024-05-25'
+  status: in_progress
+- id: ms-02
+  name: Database & Entities
+  target_date: '2024-05-26'
+  status: planned
+- id: ms-03
+  name: Core API Implementation
+  target_date: '2024-05-27'
+  status: planned
+- id: ms-04
+  name: Testing & Refinement
+  target_date: '2024-05-28'
+  status: planned
 tasks:
-  - id: "task-101"
-    title: "Create Directory Structure & Documentation"
-    owner: "Jules"
-    state: "in_progress"
-    milestone: "ms-01"
-  - id: "task-102"
-    title: "Initialize Symfony Project Files"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-01"
-  - id: "task-201"
-    title: "Configure SQLite & Doctrine"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-02"
-  - id: "task-202"
-    title: "Implement User Entity"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-02"
-  - id: "task-203"
-    title: "Implement Task Entity"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-02"
-  - id: "task-301"
-    title: "Implement User Repository"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-302"
-    title: "Implement Task Repository"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-303"
-    title: "Implement User Service"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-304"
-    title: "Implement Task Service"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-305"
-    title: "Implement User Controller"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-306"
-    title: "Implement Task Controller"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-307"
-    title: "Implement System Controller"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-401"
-    title: "Write Unit Tests"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-04"
-  - id: "task-402"
-    title: "Write Integration Tests"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-04"
-  - id: "task-403"
-    title: "Write E2E Tests"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-04"
-
+- id: task-101
+  title: Create Directory Structure & Documentation
+  owner: Jules
+  state: in_progress
+  milestone: ms-01
+- id: task-102
+  title: Initialize Symfony Project Files
+  owner: Jules
+  state: planned
+  milestone: ms-01
+- id: task-201
+  title: Configure SQLite & Doctrine
+  owner: Jules
+  state: planned
+  milestone: ms-02
+- id: task-202
+  title: Implement User Entity
+  owner: Jules
+  state: planned
+  milestone: ms-02
+- id: task-203
+  title: Implement Task Entity
+  owner: Jules
+  state: planned
+  milestone: ms-02
+- id: task-301
+  title: Implement User Repository
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-302
+  title: Implement Task Repository
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-303
+  title: Implement User Service
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-304
+  title: Implement Task Service
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-305
+  title: Implement User Controller
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-306
+  title: Implement Task Controller
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-307
+  title: Implement System Controller
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-401
+  title: Write Unit Tests
+  owner: Jules
+  state: planned
+  milestone: ms-04
+- id: task-402
+  title: Write Integration Tests
+  owner: Jules
+  state: planned
+  milestone: ms-04
+- id: task-403
+  title: Write E2E Tests
+  owner: Jules
+  state: planned
+  milestone: ms-04
 risks:
-  - description: "SQLite concurrency in PHP"
-    probability: "Low"
-    impact: "Medium"
-  - description: "Achieving 100% test coverage"
-    probability: "Medium"
-    impact: "Low"
+- description: SQLite concurrency in PHP
+  probability: Low
+  impact: Medium
+- description: Achieving 100% test coverage
+  probability: Medium
+  impact: Low
+validation:
+  workflow: PHPSymphony.yml

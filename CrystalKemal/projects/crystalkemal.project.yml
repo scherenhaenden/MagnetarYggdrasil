@@ -1,53 +1,51 @@
 metadata:
-  name: "Crystal (Kemal)"
-  description: "Crystal implementation using Kemal framework"
-  start_date: "2024-05-25"
-
+  name: Crystal (Kemal)
+  description: Crystal implementation using Kemal framework
+  start_date: '2024-05-25'
 stakeholders:
-  - name: "Jules"
-    role: "Developer"
-
+- name: Jules
+  role: Developer
 milestones:
-  - id: "ms-01"
-    name: "Project Initialization"
-    target_date: "2024-05-25"
-  - id: "ms-02"
-    name: "Core Implementation"
-    target_date: "2024-05-26"
-  - id: "ms-03"
-    name: "Testing & Verification"
-    target_date: "2024-05-27"
-
+- id: ms-01
+  name: Project Initialization
+  target_date: '2024-05-25'
+- id: ms-02
+  name: Core Implementation
+  target_date: '2024-05-26'
+- id: ms-03
+  name: Testing & Verification
+  target_date: '2024-05-27'
 tasks:
-  - id: "task-101"
-    title: "Create Directory Structure & Docs"
-    owner: "Jules"
-    state: "in_progress"
-  - id: "task-102"
-    title: "Initialize shard.yml"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-103"
-    title: "Implement Database Connection & Schema"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-104"
-    title: "Implement Users API"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-105"
-    title: "Implement Tasks API"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-106"
-    title: "Implement System Health API"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-107"
-    title: "Write Unit & Integration Tests"
-    owner: "Jules"
-    state: "planned"
-
+- id: task-101
+  title: Create Directory Structure & Docs
+  owner: Jules
+  state: in_progress
+- id: task-102
+  title: Initialize shard.yml
+  owner: Jules
+  state: planned
+- id: task-103
+  title: Implement Database Connection & Schema
+  owner: Jules
+  state: planned
+- id: task-104
+  title: Implement Users API
+  owner: Jules
+  state: planned
+- id: task-105
+  title: Implement Tasks API
+  owner: Jules
+  state: planned
+- id: task-106
+  title: Implement System Health API
+  owner: Jules
+  state: planned
+- id: task-107
+  title: Write Unit & Integration Tests
+  owner: Jules
+  state: planned
 risks:
-  - description: "Crystal compilation time"
-    mitigation: "Run focused tests"
+- description: Crystal compilation time
+  mitigation: Run focused tests
+validation:
+  workflow: CrystalKemal.yml

@@ -4,3 +4,5 @@ framework: Dream
 database: SQLite
 status: In Progress
 owner: Jules
+validation:
+  workflow: OCamlDream.yml
