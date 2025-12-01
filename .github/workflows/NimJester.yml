@@ -1,0 +1,23 @@
+name: NimJester Workflow
+'on':
+  push:
+    branches:
+    - project-run/NimJester
+  pull_request:
+    branches:
+    - project-run/NimJester
+jobs:
+  test:
+    name: Test NimJester
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NimJester
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Nim
+      uses: jiro4989/setup-nim@v1
+    - name: Install Dependencies
+      run: nimble install -y
+    - name: Test
+      run: nimble test

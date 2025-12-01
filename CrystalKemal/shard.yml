@@ -1,0 +1,8 @@
+name: crystal_kemal
+version: 0.1.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3

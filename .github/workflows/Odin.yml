@@ -1,0 +1,23 @@
+name: Odin Workflow
+'on':
+  push:
+    branches:
+    - project-run/Odin
+  pull_request:
+    branches:
+    - project-run/Odin
+jobs:
+  test:
+    name: Test Odin
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Odin
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Odin
+      uses: laytan/setup-odin@v1
+    - name: Install Dependencies
+      run: sudo apt-get install -y libsqlite3-dev
+    - name: Test
+      run: odin test tests

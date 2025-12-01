@@ -1,0 +1,6 @@
+project:
+  name: clojure_ring
+  language: clojure
+  framework: ring
+  type: backend
+  status: beta

@@ -1,0 +1,24 @@
+name: ScalaAkka Workflow
+'on':
+  push:
+    branches:
+    - project-run/ScalaAkka
+  pull_request:
+    branches:
+    - project-run/ScalaAkka
+jobs:
+  test:
+    name: Test ScalaAkka
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ScalaAkka
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '17'
+    - name: Test
+      run: sbt test

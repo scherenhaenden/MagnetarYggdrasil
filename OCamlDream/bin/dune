@@ -1,0 +1,5 @@
+(executable
+ (public_name magnetar)
+ (name main)
+ (libraries magnetar.lib dream caqti-driver-sqlite3 lwt)
+ (preprocess (pps lwt_ppx)))

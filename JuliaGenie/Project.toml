@@ -1,0 +1,22 @@
+name = "JuliaGenie"
+uuid = "51a3194a-10d2-4318-9366-231923123123"
+authors = ["Jules"]
+version = "0.1.0"
+
+[deps]
+Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
+SearchLight = "5e564d60-0391-4999-90d5-7634f59042b4"
+SearchLightSQLite = "3d76e331-b383-4a0d-9b65-e970a0558b68"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+UUIDs = "cf7118a7-6976-5b1a-9a39-7adc72f5915c"
+
+[compat]
+julia = "1.9"
+Genie = "5"
+SearchLight = "3"
+SearchLightSQLite = "3"
+SQLite = "1"

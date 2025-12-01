@@ -1,0 +1,25 @@
+name: JuliaGenie Workflow
+'on':
+  push:
+    branches:
+    - project-run/JuliaGenie
+  pull_request:
+    branches:
+    - project-run/JuliaGenie
+jobs:
+  test:
+    name: Test JuliaGenie
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: JuliaGenie
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: '1.9'
+    - name: Install Dependencies
+      run: julia --project -e 'using Pkg; Pkg.instantiate()'
+    - name: Test
+      run: julia --project -e 'using Pkg; Pkg.test()'

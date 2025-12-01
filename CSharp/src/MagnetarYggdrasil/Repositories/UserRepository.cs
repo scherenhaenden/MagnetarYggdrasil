@@ -1,6 +1,7 @@
 using System.Data;
 using Microsoft.Data.Sqlite;
 using MagnetarYggdrasil.Models;
+using MagnetarYggdrasil.Data;
 
 namespace MagnetarYggdrasil.Repositories;
 

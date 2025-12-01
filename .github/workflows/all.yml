@@ -1,0 +1,425 @@
+name: Run All Projects
+'on':
+  push:
+    branches:
+    - project-run/all
+  pull_request:
+    branches:
+    - project-run/all
+  workflow_dispatch: {}
+jobs:
+  JuliaGenie:
+    name: Test JuliaGenie
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: JuliaGenie
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: '1.9'
+    - name: Install Dependencies
+      run: julia --project -e 'using Pkg; Pkg.instantiate()'
+    - name: Test
+      run: julia --project -e 'using Pkg; Pkg.test()'
+  Erlang:
+    name: Test Erlang
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Erlang
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Erlang
+      uses: erlef/setup-beam@v1
+      with:
+        otp-version: '26.0'
+        version-type: strict
+    - name: Test
+      run: rebar3 ct
+  LuaOpenResty:
+    name: Test LuaOpenResty
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: LuaOpenResty
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install OpenResty
+      run: sudo apt-get update && sudo apt-get -y install --no-install-recommends
+        wget gnupg ca-certificates && wget -O - https://openresty.org/package/pubkey.gpg
+        | sudo apt-key add - && echo "deb http://openresty.org/package/ubuntu $(lsb_release
+        -sc) main" | sudo tee /etc/apt/sources.list.d/openresty.list && sudo apt-get
+        update && sudo apt-get -y install openresty
+    - name: Install Busted
+      run: sudo apt-get install -y luarocks && sudo luarocks install busted
+    - name: Test
+      run: busted tests/
+  Rust:
+    name: Test Rust
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Rust
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: stable
+        override: true
+    - name: Test
+      run: cargo test
+  DVibe:
+    name: Test DVibe
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: DVibe
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup D
+      uses: dlang-community/setup-dlang@v1
+      with:
+        compiler: dmd-latest
+    - name: Test
+      run: dub test
+  Vvweb:
+    name: Test Vvweb
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Vvweb
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup V
+      uses: vlang/setup-v@v1.3
+    - name: Install Dependencies
+      run: sudo apt-get install -y libsqlite3-dev
+    - name: Test
+      run: v test .
+  PythonFastApi:
+    name: Test PythonFastApi
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: PythonFastApi
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+    - name: Test
+      run: pytest
+  CSharp:
+    name: Test CSharp
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: CSharp
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Test
+      run: dotnet test
+  CrystalKemal:
+    name: Test CrystalKemal
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: CrystalKemal
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Crystal
+      uses: crystal-lang/install-crystal@v1
+    - name: Install Dependencies
+      run: shards install
+    - name: Test
+      run: crystal spec
+  JavaGraalVM:
+    name: Test JavaGraalVM
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: JavaGraalVM
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup GraalVM
+      uses: graalvm/setup-graalvm@v1
+      with:
+        java-version: '21'
+        distribution: graalvm
+    - name: Test
+      run: ./mvnw test
+  Cpp:
+    name: Test Cpp
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Cpp
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev uuid-dev
+        openssl libssl-dev zlib1g-dev
+    - name: Configure
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
+    - name: Build
+      run: cmake --build build
+    - name: Test
+      run: cd build && ctest --output-on-failure
+  Zig:
+    name: Test Zig
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Zig
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Zig
+      uses: goto-bus-stop/setup-zig@v1
+    - name: Test
+      run: zig build test
+  NodeNestJs:
+    name: Test NodeNestJs
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NodeNestJs
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Install Dependencies
+      run: npm ci
+    - name: Test
+      run: npm test
+  C:
+    name: Test C
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: C
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev libssl-dev
+    - name: Install Kore
+      run: wget -qO - https://kore.io/install | bash
+    - name: Build
+      working-directory: C
+      run: make
+    - name: Test
+      working-directory: C
+      run: make test
+  RubyInRails:
+    name: Test RubyInRails
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: RubyInRails
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+    - name: Install Dependencies
+      run: bundle install
+    - name: Test
+      run: bundle exec rspec
+  ClojureRing:
+    name: Test ClojureRing
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ClojureRing
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '17'
+    - name: Setup Clojure
+      uses: DeLaGuardo/setup-clojure@v12
+      with:
+        tools-deps: latest
+    - name: Test
+      run: clojure -M:test
+  PHPSymphony:
+    name: Test PHPSymphony
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: PHPSymphony
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: sqlite3
+    - name: Install Dependencies
+      run: composer install --prefer-dist --no-progress
+    - name: Test
+      run: php bin/phpunit
+  OCamlDream:
+    name: Test OCamlDream
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: OCamlDream
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup OCaml
+      uses: ocaml/setup-ocaml@v2
+      with:
+        ocaml-compiler: '5.0'
+    - name: Install Dependencies
+      run: opam install . --deps-only --with-test
+    - name: Test
+      run: opam exec -- dune runtest
+  NimJester:
+    name: Test NimJester
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NimJester
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Nim
+      uses: jiro4989/setup-nim@v1
+    - name: Install Dependencies
+      run: nimble install -y
+    - name: Test
+      run: nimble test
+  Elixir:
+    name: Test Elixir
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Elixir
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Elixir
+      uses: erlef/setup-beam@v1
+      with:
+        elixir-version: '1.15'
+        otp-version: '26.0'
+    - name: Install Dependencies
+      run: mix deps.get
+    - name: Test
+      run: mix test
+  ScalaAkka:
+    name: Test ScalaAkka
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ScalaAkka
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '17'
+    - name: Test
+      run: sbt test
+  Haskell:
+    name: Test Haskell
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Haskell
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Haskell
+      uses: haskell/actions/setup@v2
+      with:
+        ghc-version: '9.4'
+        cabal-version: '3.10'
+    - name: Update Cabal
+      run: cabal update
+    - name: Test
+      run: cabal test
+  Odin:
+    name: Test Odin
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Odin
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Odin
+      uses: laytan/setup-odin@v1
+    - name: Install Dependencies
+      run: sudo apt-get install -y libsqlite3-dev
+    - name: Test
+      run: odin test tests
+  Go:
+    name: Test Go
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Go
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    - name: Test
+      run: go test ./...
+  JavaSpring:
+    name: Test JavaSpring
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: JavaSpring
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '17'
+    - name: Test
+      run: mvn test
+  Kotlin:
+    name: Test Kotlin
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Kotlin
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '17'
+    - name: Test
+      run: ./gradlew test
+  Swift:
+    name: Test Swift
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Swift
+    steps:
+    - uses: actions/checkout@v3
+    - name: Test
+      run: swift test
