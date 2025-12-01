@@ -1,5 +1,6 @@
 #include <kore/kore.h>
 #include <kore/http.h>
+#include <stdlib.h>
 #include "../include/models.h"
 #include "../include/db.h"
 #include "../include/helpers.h"
@@ -40,14 +41,14 @@ int handle_users_tasks(struct http_request *req) {
             cJSON_AddStringToObject(resp, "title", title->valuestring);
             cJSON_AddStringToObject(resp, "description", desc->valuestring);
             cJSON_AddBoolToObject(resp, "is_done", 0);
-            http_response_json(req, 201, resp);
+            app_response_json(req, 201, resp);
         } else {
              http_response(req, 400, "Failed to create task (User invalid?)", 37);
         }
 
     } else if (req->method == HTTP_METHOD_GET) {
         cJSON *tasks = db_get_user_tasks(user_id);
-        http_response_json(req, 200, tasks);
+        app_response_json(req, 200, tasks);
     } else {
         http_response(req, 405, "Method Not Allowed", 18);
     }
@@ -80,7 +81,7 @@ int handle_tasks_id(struct http_request *req) {
             free(task->description);
             free(task);
 
-            http_response_json(req, 200, resp);
+            app_response_json(req, 200, resp);
         } else {
             http_response(req, 404, "Task not found", 14);
         }
@@ -108,7 +109,7 @@ int handle_tasks_id(struct http_request *req) {
              free(task->title);
              free(task->description);
              free(task);
-             http_response_json(req, 200, resp);
+             app_response_json(req, 200, resp);
         } else {
              http_response(req, 404, "Task not found", 14);
         }
@@ -156,7 +157,7 @@ int handle_tasks_done(struct http_request *req) {
              free(task->title);
              free(task->description);
              free(task);
-             http_response_json(req, 200, resp);
+             app_response_json(req, 200, resp);
         } else {
             http_response(req, 404, "Task not found", 14);
         }

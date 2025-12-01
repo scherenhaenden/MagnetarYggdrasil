@@ -23,7 +23,7 @@ The goal is for every project to reach "Business Equal" status, meaning it fully
 
 | Ecosystem | Implemented (Code Exists) | Implements Canonical Model | Tests Written | Docker Written | Business Equal Ready | Notes |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Rust (Actix/Axum)** | ✅ | ❌ | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
+| **Rust (Actix/Axum)** | ✅ | ✅ | ✅ | ✅ | ❌ | Validating Business Equal |
 | **C++ (Drogon)** | ✅ | ❌ | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
 | **C (kore.io)** | ✅ | ❌ | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
 | **Zig std.http** | ✅ | ❌ | ✅ | ❌ | ❌ | Implementation exists, needs Canonical files |
