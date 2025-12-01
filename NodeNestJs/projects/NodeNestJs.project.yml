@@ -1,0 +1,4 @@
+metadata:
+  name: NodeNestJs
+validation:
+  workflow: NodeNestJs.yml
