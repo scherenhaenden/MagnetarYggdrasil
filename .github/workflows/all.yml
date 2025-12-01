@@ -218,7 +218,7 @@ jobs:
     - name: Install Kore
       run: wget -qO - https://kore.io/install | bash
     - name: Build
-      working-directory: C
+      working-directory: CKore
       run: make
     - name: Test
       working-directory: C
