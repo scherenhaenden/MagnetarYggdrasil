@@ -1,4 +1,4 @@
-# C (Kore.io) Implementation
+# CKore (Kore.io) Implementation
 
 ## Prerequisites
 *   `kore` (Install via package manager or source: https://kore.io/)
@@ -7,7 +7,7 @@
 
 ## Build
 ```bash
-kodre build
+kodev build
 # OR manually
 make
 ```
