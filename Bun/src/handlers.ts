@@ -11,6 +11,9 @@ export class Handlers {
     }
 
     // Health
+    /**
+     * Returns a health check response.
+     */
     async health(req: Request): Promise<Response> {
         return new Response(JSON.stringify({ status: "ok" }), {
             headers: { "Content-Type": "application/json" },
@@ -18,6 +21,16 @@ export class Handlers {
     }
 
     // Users
+    /**
+     * Creates a new user based on the request data.
+     *
+     * This function processes the incoming request to extract user information, specifically the name and email.
+     * If either of these fields is missing, it returns a 400 response indicating the error.
+     * Upon successful creation of the user using the userService, it returns a 201 response with the user data in JSON format.
+     * In case of any errors during the process, a 500 response is returned with the error message.
+     *
+     * @param req - The request object containing user data.
+     */
     async createUser(req: Request): Promise<Response> {
         try {
             const body = await req.json() as any;
@@ -34,6 +47,9 @@ export class Handlers {
         }
     }
 
+    /**
+     * Retrieves all users and returns them as a JSON response.
+     */
     async getAllUsers(req: Request): Promise<Response> {
         const users = this.userService.getAllUsers();
         return new Response(JSON.stringify(users), {
@@ -41,6 +57,9 @@ export class Handlers {
         });
     }
 
+    /**
+     * Retrieves a user by their ID and returns the user data or a 404 response if not found.
+     */
     async getUserById(req: Request, id: number): Promise<Response> {
         const user = this.userService.getUserById(id);
         if (!user) {
@@ -75,6 +94,16 @@ export class Handlers {
     }
 
     // Tasks
+    /**
+     * Handles the creation of a task for a user.
+     *
+     * This asynchronous function processes the incoming request to create a task.
+     * It attempts to extract the user ID from the request path and expects the request body
+     * to contain task details. If the method is not allowed, it returns a 405 response.
+     * In case of an error, it catches the exception and returns a 500 response with the error message.
+     *
+     * @param req - The incoming request object containing task details and user information.
+     */
     async createTask(req: Request): Promise<Response> {
         try {
             const body = await req.json() as any;
@@ -127,6 +156,9 @@ export class Handlers {
         });
     }
 
+    /**
+     * Retrieves a task by its ID and returns the task or a 404 response if not found.
+     */
     async getTaskById(req: Request, id: number): Promise<Response> {
         const task = this.taskService.getTaskById(id);
         if (!task) {
@@ -137,6 +169,18 @@ export class Handlers {
         });
     }
 
+    /**
+     * Updates a task based on the provided ID and request body.
+     *
+     * This asynchronous function retrieves the JSON body from the request,
+     * then calls the taskService's updateTask method with the task ID and
+     * the task details (title, description, and completion status). If the
+     * task is not found, it returns a 404 response. In case of an error,
+     * it returns a 500 response with the error message.
+     *
+     * @param req - The request object containing the task details in JSON format.
+     * @param id - The ID of the task to be updated.
+     */
     async updateTask(req: Request, id: number): Promise<Response> {
         try {
             const body = await req.json() as any;
@@ -152,6 +196,9 @@ export class Handlers {
         }
     }
 
+    /**
+     * Marks a task as done and returns the task details or a 404 error if not found.
+     */
     async markTaskDone(req: Request, id: number): Promise<Response> {
         const task = this.taskService.markTaskDone(id);
         if (!task) {
@@ -162,6 +209,9 @@ export class Handlers {
         });
     }
 
+    /**
+     * Deletes a task by its ID and returns the appropriate response.
+     */
     async deleteTask(req: Request, id: number): Promise<Response> {
         const success = this.taskService.deleteTask(id);
         if (!success) {
