@@ -54,7 +54,7 @@ The goal is for every project to reach "Business Equal" status, meaning it fully
 | **Rust (Actix/Axum)** | ✅ | ❌ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Rust.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Rust.yml) | ❌ | Implementation exists, needs Docker |
 | **Scala (Akka)** | ✅ | ✅ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/ScalaAkka.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/ScalaAkka.yml) | ❌ | Implementation exists, needs Docker |
 | **Swift (Vapor)** | ✅ | ❌ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Swift.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Swift.yml) | ❌ | Implementation exists, needs Canonical files, needs Docker |
-| **Unison** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Planned |
+| **Unison** | ❌ | ✅ | ❌ | ❌ | ❓ | ❌ | Canonical files ready, Implementation pending |
 | **V (vweb)** | ✅ | ✅ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Vvweb.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Vvweb.yml) | ❌ | Implementation exists, needs Docker |
 | **WebAssembly** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Pending |
 | **Zig std.http** | ✅ | ❌ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Zig.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Zig.yml) | ❌ | Implementation exists, needs Canonical files, needs Docker |

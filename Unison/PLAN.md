@@ -12,7 +12,7 @@ This plan captures the project's milestones, tasks, estimates, and status. Its s
 ## Task Backlog Table
 | Task ID | Milestone | Title | Owner | Effort (pts) | State | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| task-101 | ms-01 | Create Canonical Files | Jules | 1 | in_progress | Creating initial structure |
+| task-101 | ms-01 | Create Canonical Files | Jules | 1 | done | Creating initial structure |
 | task-102 | ms-02 | Implement HTTP Server | Jules | 5 | planned | Using Unison IO/HTTP |
 | task-103 | ms-02 | Implement SQLite | Jules | 5 | planned | Using FFI or bindings |
 | task-104 | ms-03 | Implement API Handlers | Jules | 8 | planned | CRUD operations |

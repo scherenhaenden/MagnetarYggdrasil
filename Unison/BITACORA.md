@@ -10,6 +10,11 @@ This document is a logbook that records decisions, state changes, discoveries, a
 ## Entries
 
 ---
+**Timestamp:** 2025-12-01 11:30 Z
+**Author:** Jules
+**Entry:** `task-101`: state changed from `in_progress` to `done`. Canonical files completed including `README_RUN.md`.
+
+---
 **Timestamp:** 2025-12-01 11:23 Z
 **Author:** Jules
 **Entry:** `task-101`: state changed from `planned` to `in_progress`. Starting creation of canonical files.
