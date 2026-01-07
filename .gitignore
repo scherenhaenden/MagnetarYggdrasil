@@ -11,3 +11,4 @@ CSharp/*.suo
 CSharp/tests/MagnetarYggdrasil.Tests/obj/
 CSharp/src/MagnetarYggdrasil/obj/
 CSharp/tests/MagnetarYggdrasil.Tests/bin/
+.idea/
