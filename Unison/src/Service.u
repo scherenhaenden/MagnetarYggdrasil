@@ -1,0 +1,31 @@
+
+-- Service Layer
+-- Contains business logic
+
+ability Service where
+  registerUser : Text -> Text -> {Service} User
+  findUser : Nat -> {Service} Optional User
+  getAllUsers : {Service} [User]
+  addTask : Nat -> Text -> Text -> {Service} Task
+  getUserTasks : Nat -> {Service} [Task]
+
+-- Handler implementation mapping Service calls to Database calls
+handleServiceWithDb : Request Service a -> {Database} a
+handleServiceWithDb request =
+  case request of
+    { Service.registerUser name email -> resume } ->
+      handleServiceWithDb (resume (Database.createUser (CreateUser name email)))
+
+    { Service.findUser id -> resume } ->
+      handleServiceWithDb (resume (Database.getUser id))
+
+    { Service.getAllUsers -> resume } ->
+      handleServiceWithDb (resume (Database.listUsers))
+
+    { Service.addTask userId title desc -> resume } ->
+      handleServiceWithDb (resume (Database.createTask userId (CreateTask title desc)))
+
+    { Service.getUserTasks userId -> resume } ->
+      handleServiceWithDb (resume (Database.listTasks userId))
+
+    { a } -> a

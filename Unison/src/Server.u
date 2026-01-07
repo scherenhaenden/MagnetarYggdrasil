@@ -1,0 +1,41 @@
+
+-- Server Entry Point
+-- Simulates the server loop and dependency injection.
+
+use .Domain
+use .Repository
+use .Service
+use .Handler
+
+startServer : '{IO} ()
+startServer = 'let
+  -- Initialize empty store
+  initialStore = Store Map.empty Map.empty 1 1
+
+  -- The main loop would accept connections and dispatch to handlers.
+  -- Here we simulate a single request to demonstrate the flow.
+
+  printLine "Starting Unison Server on port 8080..."
+
+  let
+    req = HttpRequest "GET" "/users" None
+
+    -- Effect stack: IO < Service < Database
+    -- We need to handle effects in order.
+
+    program = 'let
+       resp = handleHttp req
+       printLine ("Response: " ++ resp.body)
+
+    -- Composition of handlers
+    -- 1. Handle Service using Database
+    -- 2. Handle Database using InMemory store
+
+    handledService = '(handleServiceWithDb !program)
+
+    handledDb = '(handleInMemory initialStore !handledService)
+
+    -- Execute
+    !handledDb
+
+  printLine "Server stopped."

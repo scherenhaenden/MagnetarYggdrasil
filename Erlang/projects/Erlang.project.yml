@@ -1,0 +1,4 @@
+metadata:
+  name: Erlang
+validation:
+  workflow: Erlang.yml
