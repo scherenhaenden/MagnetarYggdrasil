@@ -1,0 +1,32 @@
+metadata:
+  name: "MagnetarYggdrasil - Racket"
+  description: "Racket implementation of the Magnetar Canonical Project"
+  start_date: "2024-05-22"
+stakeholders:
+  - name: "Jules"
+    role: "Lead Developer"
+milestones:
+  - id: "ms-01"
+    name: "Project Setup"
+    target_date: "TBD"
+  - id: "ms-02"
+    name: "Implementation"
+    target_date: "TBD"
+  - id: "ms-03"
+    name: "Testing & Verify"
+    target_date: "TBD"
+tasks:
+  - id: "task-001"
+    title: "Create Governance Files"
+    owner: "Jules"
+    state: "done"
+  - id: "task-002"
+    title: "Implement Racket Application"
+    owner: "Jules"
+    state: "in_progress"
+  - id: "task-003"
+    title: "Write Tests"
+    owner: "Jules"
+    state: "planned"
+risks:
+  - description: "Racket ecosystem familiarity"
