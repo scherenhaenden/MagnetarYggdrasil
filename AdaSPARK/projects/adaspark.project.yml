@@ -32,3 +32,6 @@ tasks:
 risks:
   - description: Environment limitations
 reporting: {}
+validation:
+  workflow: "AdaSPARK.yml"
+  cmd: "gprbuild -P magnetar_ada.gpr"
