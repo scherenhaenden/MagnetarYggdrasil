@@ -1,0 +1,45 @@
+
+-- HTTP Handler
+-- Defines how requests are processed and mapped to Service calls.
+
+use .Domain
+use .Service
+
+-- Simple definition of an HTTP Request/Response for this context
+type HttpRequest = {
+  method : Text,
+  path : Text,
+  body : Optional Text
+}
+
+type HttpResponse = {
+  status : Nat,
+  body : Text
+}
+
+ability HttpHandler where
+  handleRequest : HttpRequest -> {HttpHandler} HttpResponse
+
+-- Implementation of the handler logic
+handleHttp : HttpRequest -> {Service} HttpResponse
+handleHttp req =
+  case (req.method, req.path) of
+    ("GET", "/users") ->
+      let users = Service.getAllUsers
+      -- JSON serialization would happen here
+      HttpResponse 200 "JSON_LIST_OF_USERS"
+
+    ("POST", "/users") ->
+      -- JSON parsing would happen here
+      -- Assuming body contains name and email
+      let user = Service.registerUser "Test" "test@example.com"
+      HttpResponse 201 "JSON_USER_CREATED"
+
+    ("GET", path) ->
+       -- Basic routing logic
+       if Text.startsWith "/users/" path then
+         HttpResponse 200 "USER_DETAILS"
+       else
+         HttpResponse 404 "Not Found"
+
+    _ -> HttpResponse 405 "Method Not Allowed"
