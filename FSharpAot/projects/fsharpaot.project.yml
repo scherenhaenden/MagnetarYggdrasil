@@ -1,7 +1,7 @@
 project: "F# (.NET AOT)"
 tech_stack:
   language: "F#"
-  framework: ".NET 9/10 Native AOT"
+  framework: ".NET 10 Native AOT"
   database: "SQLite (Microsoft.Data.Sqlite)"
 status: "implemented"
 validation:
