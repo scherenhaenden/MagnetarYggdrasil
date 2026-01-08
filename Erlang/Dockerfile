@@ -21,8 +21,14 @@ WORKDIR /app
 # Copy the release from builder
 COPY --from=builder /app/_build/prod/rel/magnetar /app/magnetar
 
+# Create a non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
 # Expose port
 EXPOSE 8080
+
+# Run as non-root user
+USER appuser
 
 # Run
 CMD ["/app/magnetar/bin/magnetar", "foreground"]
