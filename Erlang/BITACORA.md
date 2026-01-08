@@ -12,3 +12,7 @@ This document is a logbook or journal that records decisions, state changes, dis
 **Timestamp:** 2026-01-08 12:00 UTC
 **Author:** GitHub Copilot
 **Entry:** Created missing Canonical Model files: BITACORA.md, RULES.md, STATUS.md to comply with project requirements.
+
+**Timestamp:** 2026-01-08 12:05 UTC
+**Author:** AI Assistant
+**Entry:** Updated Canonical Model files (BITACORA.md, RULES.md, STATUS.md) to align with the MagnetarYggdrasil standards and Erlang specific context.
