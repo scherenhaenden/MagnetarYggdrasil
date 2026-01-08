@@ -1,0 +1,26 @@
+name: FSharpAot Workflow
+'on':
+  push:
+    branches:
+    - project-run/FSharpAot
+  pull_request:
+    branches:
+    - project-run/FSharpAot
+jobs:
+  test:
+    name: Test FSharpAot
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: FSharpAot
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 10.0.x
+    - name: Install clang and zlib
+      run: sudo apt-get update && sudo apt-get install -y clang zlib1g-dev
+    - name: Test
+      run: dotnet test
+
