@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /app
 
 # Install native dependencies for AOT (clang, zlib1g-dev are standard for .NET AOT on Linux)
-RUN apt-get update && apt-get install -y clang zlib1g-dev
+RUN apt-get update && apt-get install -y clang zlib1g-dev && rm -rf /var/lib/apt/lists/*
 
 # Copy project files for caching dependencies
 COPY *.fsproj *.csproj *.slnx ./
