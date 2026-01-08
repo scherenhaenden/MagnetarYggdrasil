@@ -116,9 +116,25 @@ def normalize_name(name):
     return name.lower().replace("*", "").replace(" ", "").replace("(", "").replace(")", "").replace("/", "").replace("-", "").strip()
 
 def get_row_index_for_project(lines, project_name, project_dir_name):
-    """Find the row index in the markdown table for a given project."""
     
     # Try explicit map first
+    """Find the row index in the markdown table for a given project.
+    
+    This function iterates through the provided lines of a markdown table to locate
+    the row index corresponding to a specified project name and directory name. It
+    first attempts to use a mapping from directory names to normalized values, then
+    checks each line for valid entries while skipping headers and separators. The
+    function employs normalization to ensure accurate matching and includes a
+    fallback mechanism for substring matches.
+    
+    Args:
+        lines (list): A list of strings representing the lines of the markdown table.
+        project_name (str): The name of the project to find.
+        project_dir_name (str): The directory name associated with the project.
+    
+    Returns:
+        int: The index of the row containing the project, or -1 if not found.
+    """
     target_normalized = DIR_TO_MATRIX_MAP.get(project_dir_name)
     
     for i, line in enumerate(lines):
@@ -194,9 +210,18 @@ def update_table_row(lines, row_index,
     return lines
 
 def check_implementation(directory):
+    """Check if the directory exists and is not empty."""
     return directory.exists() and any(directory.iterdir())
 
 def check_canonical(directory):
+    """Check if the directory contains required files and a project YAML.
+    
+    This function verifies the presence of essential markdown files in the
+    specified directory. It also checks for the existence of a 'projects'
+    subdirectory containing at least one file with a '.project.yml' extension. If
+    any required file is missing or the 'projects' directory is absent or empty,
+    the function returns False; otherwise, it returns True.
+    """
     required_files = [
         "PLAN.md", "BITACORA.md", "RULES.md", "STATUS.md",
         "TESTING.md", "BLOCKERS.md", "BRANCHING_MODEL.md",
@@ -214,6 +239,16 @@ def check_canonical(directory):
 
 def check_tests(directory, config):
     # Check for test directories
+    """def check_tests(directory, config):
+    Check for the presence of test directories or validation commands.  This
+    function checks if any of the predefined test directories exist  within the
+    specified directory. It also verifies if a validation command  or workflow is
+    present in the provided config. If either condition is  met, the function
+    returns True; otherwise, it returns False.
+    
+    Args:
+        directory: The directory to check for test directories.
+        config: The configuration dictionary that may contain validation commands."""
     test_dirs = ["tests", "test", "spec", "specs", "src/test", "test/unit"]
     for d in test_dirs:
         if (directory / d).exists():
@@ -228,9 +263,19 @@ def check_tests(directory, config):
     return False
 
 def check_docker(directory):
+    """Check if a Dockerfile exists in the specified directory."""
     return (directory / "Dockerfile").exists()
 
 def main():
+    """Main function to update project matrices and README files.
+    
+    This function loads the matrix and README lines from specified files, iterates
+    over directories in the root, and checks the implementation status, canonical
+    status, and Docker presence for each project. It also attempts to read project-
+    specific YAML configurations to extract metadata and validation commands. The
+    function updates the matrix and README with the gathered information and saves
+    the changes back to the respective files.
+    """
     matrix_lines = load_matrix(MATRIX_FILE)
     readme_lines = load_matrix(README_FILE)
 
