@@ -1,0 +1,19 @@
+metadata:
+  name: "[Project Name]"
+  description: "[Project Description]"
+  start_date: "YYYY-MM-DD"
+stakeholders:
+  - name: "[Name]"
+    role: "[Role]"
+milestones:
+  - id: "ms-01"
+    name: "[Milestone Name]"
+    target_date: "YYYY-MM-DD"
+tasks:
+  - id: "task-001"
+    title: "[Task Title]"
+    owner: "[Owner Name]"
+    state: "planned"
+risks:
+  - description: "[Risk Description]"
+reporting: {}

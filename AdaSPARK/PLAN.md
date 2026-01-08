@@ -12,15 +12,15 @@ This plan captures the project's milestones, tasks, estimates, and status. Its s
 ## Task Backlog Table
 | Task ID | Milestone | Title | Owner | Effort (pts) | Weight (%) | State | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| task-001 | ms-01 | Create Canonical Files | Jules | 1 | 10 | in_progress | |
+| task-001 | ms-01 | Create Canonical Files | Jules | 1 | 10 | done | Created all required files |
 | task-002 | ms-02 | Implement HTTP Server | Jules | 5 | 40 | planned | |
 | task-003 | ms-02 | Implement SQLite Database | Jules | 5 | 40 | planned | |
 | task-004 | ms-02 | Write Tests | Jules | 3 | 10 | planned | |
 
 ## Effort Summary
 *   **Total effort:** 14
-*   **Completed:** 0
-*   **In progress:** 1
+*   **Completed:** 1
+*   **In progress:** 0
 *   **Remaining:** 13
 
 ## State Definitions
