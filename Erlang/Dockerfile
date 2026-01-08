@@ -11,7 +11,7 @@ COPY . .
 # We need to run rebar3 as prod profile
 RUN rebar3 as prod release
 
-FROM alpine:3.19
+FROM alpine:3.20
 
 # Install runtime dependencies if needed (openssl, libstdc++, etc for esqlite/crypto)
 RUN apk add --no-cache openssl ncurses-libs libstdc++
