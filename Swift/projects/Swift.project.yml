@@ -1,0 +1,4 @@
+metadata:
+  name: Swift
+validation:
+  workflow: Swift.yml

@@ -1,68 +1,66 @@
 metadata:
-  name: "JuliaGenie"
-  description: "MagnetarYggdrasil implementation using Julia and Genie framework."
-  start_date: "2024-05-24"
-
+  name: JuliaGenie
+  description: MagnetarYggdrasil implementation using Julia and Genie framework.
+  start_date: '2024-05-24'
 stakeholders:
-  - name: "Jules"
-    role: "Lead Developer"
-
+- name: Jules
+  role: Lead Developer
 milestones:
-  - id: "ms-01"
-    name: "Project Initialization"
-    target_date: "2024-05-25"
-  - id: "ms-02"
-    name: "Database & Models"
-    target_date: "2024-05-26"
-  - id: "ms-03"
-    name: "API Implementation"
-    target_date: "2024-05-27"
-  - id: "ms-04"
-    name: "Testing & Refinement"
-    target_date: "2024-05-28"
-
+- id: ms-01
+  name: Project Initialization
+  target_date: '2024-05-25'
+- id: ms-02
+  name: Database & Models
+  target_date: '2024-05-26'
+- id: ms-03
+  name: API Implementation
+  target_date: '2024-05-27'
+- id: ms-04
+  name: Testing & Refinement
+  target_date: '2024-05-28'
 tasks:
-  - id: "task-101"
-    title: "Create Canonical Files"
-    owner: "Jules"
-    state: "in_progress"
-    milestone: "ms-01"
-  - id: "task-102"
-    title: "Setup Julia Genie Scaffold"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-01"
-  - id: "task-103"
-    title: "Configure SQLite"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-02"
-  - id: "task-104"
-    title: "Create User & Task Models"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-02"
-  - id: "task-105"
-    title: "Implement Users Controller"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-106"
-    title: "Implement Tasks Controller"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-03"
-  - id: "task-107"
-    title: "Write Unit Tests"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-04"
-  - id: "task-108"
-    title: "Write Integration Tests"
-    owner: "Jules"
-    state: "planned"
-    milestone: "ms-04"
-
+- id: task-101
+  title: Create Canonical Files
+  owner: Jules
+  state: in_progress
+  milestone: ms-01
+- id: task-102
+  title: Setup Julia Genie Scaffold
+  owner: Jules
+  state: planned
+  milestone: ms-01
+- id: task-103
+  title: Configure SQLite
+  owner: Jules
+  state: planned
+  milestone: ms-02
+- id: task-104
+  title: Create User & Task Models
+  owner: Jules
+  state: planned
+  milestone: ms-02
+- id: task-105
+  title: Implement Users Controller
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-106
+  title: Implement Tasks Controller
+  owner: Jules
+  state: planned
+  milestone: ms-03
+- id: task-107
+  title: Write Unit Tests
+  owner: Jules
+  state: planned
+  milestone: ms-04
+- id: task-108
+  title: Write Integration Tests
+  owner: Jules
+  state: planned
+  milestone: ms-04
 risks:
-  - description: "Julia TTFX might slow down dev loop."
-    mitigation: "Use Revise.jl"
+- description: Julia TTFX might slow down dev loop.
+  mitigation: Use Revise.jl
+validation:
+  workflow: JuliaGenie.yml

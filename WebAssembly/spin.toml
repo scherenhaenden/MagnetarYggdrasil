@@ -1,0 +1,19 @@
+spin_manifest_version = 2
+
+[application]
+name = "magnetar_webassembly"
+version = "0.1.0"
+authors = ["Jules <jules@magnetar.yggdrasil>"]
+description = "MagnetarYggdrasil implementation in WebAssembly (Spin)"
+
+[[trigger.http]]
+route = "/..."
+component = "magnetar_webassembly"
+
+[component.magnetar_webassembly]
+source = "target/wasm32-wasi/release/magnetar_webassembly.wasm"
+allowed_outbound_hosts = []
+allowed_http_hosts = []
+key_value_stores = ["default"]
+sqlite_databases = ["default"]
+ai_models = []
