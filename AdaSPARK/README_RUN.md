@@ -20,7 +20,7 @@ gprbuild -P magnetar_ada.gpr
 After building, the executable will be in the `obj` or `bin` directory (depending on project configuration).
 
 ```bash
-./obj/magnetar_ada
+./bin/magnetar-main
 ```
 
 (Note: Adjust path if `magnetar_ada.gpr` specifies a different `Exec_Dir`)
