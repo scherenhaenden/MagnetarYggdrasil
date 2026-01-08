@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /app
 
 # Install native dependencies for AOT (clang, zlib1g-dev are standard for .NET AOT on Linux)
-RUN apt-get update && apt-get install -y clang zlib1g-dev
+RUN apt-get update && apt-get install -y clang zlib1g-dev && rm -rf /var/lib/apt/lists/*
 
 # Copy project files for caching dependencies
 COPY *.fsproj *.csproj *.slnx ./
@@ -24,6 +24,11 @@ RUN dotnet publish FSharpAot.fsproj -c Release -o /app/publish --no-restore
 FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-preview
 WORKDIR /app
 COPY --from=build /app/publish .
+
+# Create a non-root user and switch to it
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+RUN chown -R appuser:appgroup /app
+USER appuser
 
 # Ensure the database file is not copied from build (it should be created at runtime)
 # but if we need a pre-seeded one, we'd handle it here.
