@@ -1,7 +1,7 @@
 # Status of AdaSPARK
 
 ## Progress Summary
-*   Progress: 15%
+*   Progress: 10%
 
 ## Current Milestones
 *   ms-01: Completed
