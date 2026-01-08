@@ -30,5 +30,5 @@ After building, the executable will be in the `obj` or `bin` directory (dependin
 To run tests (if implemented):
 
 ```bash
-./obj/test_runner
+./bin/test_runner
 ```
