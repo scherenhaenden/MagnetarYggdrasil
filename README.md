@@ -33,7 +33,7 @@ The goal is for every project to reach "Business Equal" status, meaning it fully
 | **Crystal (Kemal)** | ✅ | ✅ | ✅ | ❌ | ❓ | ❌ | Implementation exists, needs Docker |
 | **D (vibe.d)** | ✅ | ❌ | ❌ | ❌ | ❓ | ❌ | Implementation exists, needs Canonical files, needs Tests, needs Docker |
 | **Elixir (Phoenix)** | ✅ | ❌ | ✅ | ❌ | ❓ | ❌ | Implementation exists, needs Canonical files, needs Docker |
-| **Erlang (Cowboy)** | ✅ | ❌ | ✅ | ❌ | ❓ | ❌ | Implementation exists, needs Canonical files, needs Docker |
+| **Erlang (Cowboy)** | ✅ | ✅ | ✅ | ✅ | ❓ | ✅ | Complete |
 | **F# (.NET AOT)** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Pending |
 | **Fortran** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Pending |
 | **Go (Gin)** | ✅ | ❌ | ✅ | ❌ | ❓ | ❌ | Implementation exists, needs Canonical files, needs Docker |
