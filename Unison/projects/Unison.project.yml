@@ -22,7 +22,7 @@ project:
     - id: task-101
       title: Create Canonical Files
       owner: Jules
-      state: in_progress
+      state: done
       milestone: ms-01
     - id: task-102
       title: Implement HTTP Server

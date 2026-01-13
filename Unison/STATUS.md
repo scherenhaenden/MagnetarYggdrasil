@@ -1,10 +1,10 @@
 # Status of Unison
 
 ## Progress Summary
-Progress: 5%
+Progress: 20%
 
 ## Current Milestones
-*   **ms-01 Project Initiation:** In Progress
+*   **ms-01 Project Initiation:** Done
 *   **ms-02 Core Implementation:** Planned
 *   **ms-03 Feature Complete:** Planned
 
