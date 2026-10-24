@@ -57,7 +57,7 @@ The goal is for every project to reach "Business Equal" status, meaning it fully
 | **Unison** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Planned |
 | **V (vweb)** | ✅ | ✅ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Vvweb.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Vvweb.yml) | ❌ | Implementation exists, needs Docker |
 | **WebAssembly** | ❌ | ❌ | ❌ | ❌ | ❓ | ❌ | Pending |
-| **Zig std.http** | ✅ | ❌ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Zig.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Zig.yml) | ❌ | Implementation exists, needs Canonical files, needs Docker |
+| **Zig std.http** | ✅ | ✅ | ✅ | ❌ | [![Status](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Zig.yml/badge.svg)](https://github.com/scherenhaenden/MagnetarYggdrasil/actions/workflows/Zig.yml) | ❌ | Implementation exists, needs Docker |
 
 **Legend:**
 *   ✅ **Implemented**: Source code directory exists and contains code.
