@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Core/Core.fsproj" />
+  <Project Path="FSharpAot.fsproj" />
+  <Project Path="Json/Json.csproj" />
+  <Project Path="Tests/Tests.fsproj" />
+</Solution>

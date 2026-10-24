@@ -1,0 +1,4 @@
+metadata:
+  name: Rust
+validation:
+  workflow: Rust.yml

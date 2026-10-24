@@ -1,0 +1,34 @@
+metadata:
+  name: AdaSPARK
+  description: Magnetar implementation in Ada/SPARK
+  start_date: '2024-10-26'
+stakeholders:
+  - name: Jules
+    role: Developer
+milestones:
+  - id: ms-01
+    name: Setup
+    target_date: '2024-10-27'
+  - id: ms-02
+    name: Implementation
+    target_date: '2024-10-28'
+tasks:
+  - id: task-001
+    title: Create Canonical Files
+    owner: Jules
+    state: in_progress
+  - id: task-002
+    title: Implement HTTP Server
+    owner: Jules
+    state: planned
+  - id: task-003
+    title: Implement SQLite Database
+    owner: Jules
+    state: planned
+  - id: task-004
+    title: Write Tests
+    owner: Jules
+    state: planned
+risks:
+  - description: Environment limitations
+reporting: {}

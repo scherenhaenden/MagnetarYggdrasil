@@ -4,3 +4,5 @@ project:
   framework: ring
   type: backend
   status: beta
+validation:
+  workflow: ClojureRing.yml

@@ -19,13 +19,12 @@ defmodule MagnetarWeb.ConnCase do
 
   using do
     quote do
+      use Phoenix.ConnTest
+
       # The default endpoint for testing
       @endpoint MagnetarWeb.Endpoint
 
       import Plug.Conn
-      import Phoenix.ConnTest
-      import MagnetarWeb.ConnCase
-
       alias MagnetarWeb.Router.Helpers, as: Routes
     end
   end

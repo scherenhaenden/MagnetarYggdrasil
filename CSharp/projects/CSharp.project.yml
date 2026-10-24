@@ -1,0 +1,4 @@
+metadata:
+  name: CSharp
+validation:
+  workflow: CSharp.yml

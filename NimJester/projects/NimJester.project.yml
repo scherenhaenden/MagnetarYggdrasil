@@ -1,0 +1,4 @@
+metadata:
+  name: NimJester
+validation:
+  workflow: NimJester.yml
