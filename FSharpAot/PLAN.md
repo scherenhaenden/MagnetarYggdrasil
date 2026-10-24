@@ -16,19 +16,20 @@ This plan captures the project's milestones, tasks, estimates, and status. Its s
 | Task ID | Milestone | Title | Owner | Effort (pts) | Weight (%) | State | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | `task-001` | `ms-01` | Create Directory & Docs | Jules | 1 | 5% | `done` | |
-| `task-002` | `ms-02` | Implement Domain Models | Jules | 1 | 5% | `planned` | |
-| `task-003` | `ms-02` | Implement Repository (SQLite) | Jules | 5 | 25% | `planned` | Raw ADO.NET |
-| `task-004` | `ms-02` | Implement Service Layer | Jules | 3 | 15% | `planned` | |
-| `task-005` | `ms-03` | Implement HTTP Handlers | Jules | 3 | 15% | `planned` | Minimal APIs |
-| `task-006` | `ms-03` | Configure AOT & Entry Point | Jules | 2 | 10% | `planned` | |
-| `task-007` | `ms-02` | Write Unit Tests | Jules | 3 | 15% | `planned` | Moq |
-| `task-008` | `ms-03` | Write Integration Tests | Jules | 2 | 10% | `planned` | TestHost |
+| `task-002` | `ms-02` | Implement Domain Models | Jules | 1 | 5% | `done` | |
+| `task-003` | `ms-02` | Implement Repository (SQLite) | Jules | 5 | 24% | `done` | Raw ADO.NET |
+| `task-004` | `ms-02` | Implement Service Layer | Jules | 3 | 14% | `done` | |
+| `task-005` | `ms-03` | Implement HTTP Handlers | Jules | 3 | 14% | `done` | Minimal APIs |
+| `task-006` | `ms-03` | Configure AOT & Entry Point | Jules | 2 | 10% | `done` | |
+| `task-007` | `ms-02` | Write Unit Tests | Jules | 3 | 14% | `done` | Moq |
+| `task-008` | `ms-03` | Write Integration Tests | Jules | 2 | 10% | `done` | TestHost |
+| `task-009` | `ms-03` | Create Dockerfile | Jules | 1 | 4% | `done` | Multi-stage build |
 
 ## Effort Summary
-*   **Total effort:** 20 pts
-*   **Completed:** 1 pts
+*   **Total effort:** 21 pts
+*   **Completed:** 21 pts
 *   **In progress:** 0 pts
-*   **Remaining:** 19 pts
+*   **Remaining:** 0 pts
 
 ## State Definitions
 *   `planned`: Identified but not started.
