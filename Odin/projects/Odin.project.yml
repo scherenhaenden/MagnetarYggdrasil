@@ -1,0 +1,4 @@
+metadata:
+  name: Odin
+validation:
+  workflow: Odin.yml

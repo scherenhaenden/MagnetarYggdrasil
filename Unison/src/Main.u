@@ -1,0 +1,5 @@
+
+use .Server
+
+main : '{IO} ()
+main = startServer

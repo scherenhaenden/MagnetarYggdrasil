@@ -73,8 +73,8 @@ init([]) ->
 
 handle_call({create_user, Name, Email}, _From, State) ->
     Q = "INSERT INTO users (name, email) VALUES (?, ?);",
-    Result = case esqlite3:exec(Q, [Name, Email], State#state.conn) of
-        ok ->
+    Result = case esqlite3:q(State#state.conn, Q, [Name, Email]) of
+        [] ->
             LastId = esqlite3:last_insert_rowid(State#state.conn),
             {ok, LastId};
         {error, Reason} ->
@@ -84,15 +84,15 @@ handle_call({create_user, Name, Email}, _From, State) ->
 
 handle_call(get_users, _From, State) ->
     Q = "SELECT id, name, email FROM users;",
-    Result = esqlite3:q(Q, [], State#state.conn),
-    Rows = [ #{id => Id, name => Name, email => Email} || {Id, Name, Email} <- Result ],
+    Result = esqlite3:q(State#state.conn, Q, []),
+    Rows = [ #{id => Id, name => Name, email => Email} || [Id, Name, Email] <- Result ],
     {reply, {ok, Rows}, State};
 
 handle_call({get_user, Id}, _From, State) ->
     Q = "SELECT id, name, email FROM users WHERE id = ?;",
-    Result = esqlite3:q(Q, [Id], State#state.conn),
+    Result = esqlite3:q(State#state.conn, Q, [Id]),
     Reply = case Result of
-        [{RId, Name, Email}] -> {ok, #{id => RId, name => Name, email => Email}};
+        [[RId, Name, Email]] -> {ok, #{id => RId, name => Name, email => Email}};
         [] -> {error, not_found}
     end,
     {reply, Reply, State};
@@ -108,12 +108,12 @@ handle_call({update_user, Id, Name, Email}, _From, State) ->
 
     %% To make it robust:
     QSelect = "SELECT name, email FROM users WHERE id = ?;",
-    case esqlite3:q(QSelect, [Id], State#state.conn) of
-        [{CurrName, CurrEmail}] ->
+    case esqlite3:q(State#state.conn, QSelect, [Id]) of
+        [[CurrName, CurrEmail]] ->
             NewName = case Name of undefined -> CurrName; _ -> Name end,
             NewEmail = case Email of undefined -> CurrEmail; _ -> Email end,
             QUpdate = "UPDATE users SET name = ?, email = ? WHERE id = ?;",
-            esqlite3:exec(QUpdate, [NewName, NewEmail, Id], State#state.conn),
+            esqlite3:q(State#state.conn, QUpdate, [NewName, NewEmail, Id]),
             {reply, ok, State};
         [] ->
             {reply, {error, not_found}, State}
@@ -121,18 +121,18 @@ handle_call({update_user, Id, Name, Email}, _From, State) ->
 
 handle_call({delete_user, Id}, _From, State) ->
     Q = "DELETE FROM users WHERE id = ?;",
-    esqlite3:exec(Q, [Id], State#state.conn),
+    esqlite3:q(State#state.conn, Q, [Id]),
     {reply, ok, State};
 
 handle_call({create_task, UserId, Title, Description}, _From, State) ->
     %% Check if user exists
     QCheck = "SELECT 1 FROM users WHERE id = ?;",
-    case esqlite3:q(QCheck, [UserId], State#state.conn) of
+    case esqlite3:q(State#state.conn, QCheck, [UserId]) of
         [] -> {reply, {error, not_found}, State};
         _ ->
             Q = "INSERT INTO tasks (user_id, title, description, is_done) VALUES (?, ?, ?, 0);",
-            Result = case esqlite3:exec(Q, [UserId, Title, Description], State#state.conn) of
-                ok ->
+            Result = case esqlite3:q(State#state.conn, Q, [UserId, Title, Description]) of
+                [] ->
                     LastId = esqlite3:last_insert_rowid(State#state.conn),
                     {ok, LastId};
                 {error, Reason} -> {error, Reason}
@@ -142,16 +142,16 @@ handle_call({create_task, UserId, Title, Description}, _From, State) ->
 
 handle_call({get_tasks, UserId}, _From, State) ->
     Q = "SELECT id, user_id, title, description, is_done FROM tasks WHERE user_id = ?;",
-    Result = esqlite3:q(Q, [UserId], State#state.conn),
+    Result = esqlite3:q(State#state.conn, Q, [UserId]),
     Rows = [ #{id => Id, user_id => UId, title => Title, description => Desc, is_done => bool(IsDone)}
-             || {Id, UId, Title, Desc, IsDone} <- Result ],
+             || [Id, UId, Title, Desc, IsDone] <- Result ],
     {reply, {ok, Rows}, State};
 
 handle_call({get_task, TaskId}, _From, State) ->
     Q = "SELECT id, user_id, title, description, is_done FROM tasks WHERE id = ?;",
-    Result = esqlite3:q(Q, [TaskId], State#state.conn),
+    Result = esqlite3:q(State#state.conn, Q, [TaskId]),
     Reply = case Result of
-        [{Id, UId, Title, Desc, IsDone}] ->
+        [[Id, UId, Title, Desc, IsDone]] ->
             {ok, #{id => Id, user_id => UId, title => Title, description => Desc, is_done => bool(IsDone)}};
         [] -> {error, not_found}
     end,
@@ -159,14 +159,14 @@ handle_call({get_task, TaskId}, _From, State) ->
 
 handle_call({update_task, TaskId, Title, Description, IsDone}, _From, State) ->
     QSelect = "SELECT title, description, is_done FROM tasks WHERE id = ?;",
-    case esqlite3:q(QSelect, [TaskId], State#state.conn) of
-        [{CurrTitle, CurrDesc, CurrIsDone}] ->
+    case esqlite3:q(State#state.conn, QSelect, [TaskId]) of
+        [[CurrTitle, CurrDesc, CurrIsDone]] ->
             NewTitle = case Title of undefined -> CurrTitle; _ -> Title end,
             NewDesc = case Description of undefined -> CurrDesc; _ -> Description end,
             NewIsDone = case IsDone of undefined -> CurrIsDone; _ -> int(IsDone) end,
 
             QUpdate = "UPDATE tasks SET title = ?, description = ?, is_done = ? WHERE id = ?;",
-            esqlite3:exec(QUpdate, [NewTitle, NewDesc, NewIsDone, TaskId], State#state.conn),
+            esqlite3:q(State#state.conn, QUpdate, [NewTitle, NewDesc, NewIsDone, TaskId]),
             {reply, ok, State};
         [] ->
             {reply, {error, not_found}, State}
@@ -176,14 +176,14 @@ handle_call({mark_task_done, TaskId}, _From, State) ->
      QUpdate = "UPDATE tasks SET is_done = 1 WHERE id = ?;",
      %% We should check if it exists first to return 404 correctly if needed,
      %% or we can check changes().
-     esqlite3:exec(QUpdate, [TaskId], State#state.conn),
+     esqlite3:q(State#state.conn, QUpdate, [TaskId]),
      Changes = esqlite3:changes(State#state.conn),
      Reply = if Changes > 0 -> ok; true -> {error, not_found} end,
      {reply, Reply, State};
 
 handle_call({delete_task, TaskId}, _From, State) ->
     Q = "DELETE FROM tasks WHERE id = ?;",
-    esqlite3:exec(Q, [TaskId], State#state.conn),
+    esqlite3:q(State#state.conn, Q, [TaskId]),
     {reply, ok, State};
 
 handle_call(_Request, _From, State) ->
@@ -212,7 +212,7 @@ ensure_schema(Conn) ->
         name TEXT NOT NULL,
         email TEXT NOT NULL
     );",
-    ok = esqlite3:exec(QUsers, Conn),
+    ok = esqlite3:exec(Conn, QUsers),
 
     QTasks = "CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -222,10 +222,10 @@ ensure_schema(Conn) ->
         is_done INTEGER DEFAULT 0,
         FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
     );",
-    ok = esqlite3:exec(QTasks, Conn),
+    ok = esqlite3:exec(Conn, QTasks),
 
     %% Enable foreign keys
-    ok = esqlite3:exec("PRAGMA foreign_keys = ON;", Conn),
+    ok = esqlite3:exec(Conn, "PRAGMA foreign_keys = ON;"),
     ok.
 
 bool(0) -> false;

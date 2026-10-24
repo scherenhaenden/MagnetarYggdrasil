@@ -1,0 +1,4 @@
+metadata:
+  name: Zig
+validation:
+  workflow: Zig.yml

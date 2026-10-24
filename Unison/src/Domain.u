@@ -1,0 +1,37 @@
+
+-- Domain Models
+
+type User = {
+  id : Nat,
+  name : Text,
+  email : Text
+}
+
+type CreateUser = {
+  name : Text,
+  email : Text
+}
+
+type UpdateUser = {
+  name : Optional Text,
+  email : Optional Text
+}
+
+type Task = {
+  id : Nat,
+  userId : Nat,
+  title : Text,
+  description : Text,
+  isDone : Boolean
+}
+
+type CreateTask = {
+  title : Text,
+  description : Text
+}
+
+type UpdateTask = {
+  title : Optional Text,
+  description : Optional Text,
+  isDone : Optional Boolean
+}

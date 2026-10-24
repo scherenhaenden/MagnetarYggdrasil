@@ -1,0 +1,4 @@
+metadata:
+  name: Go
+validation:
+  workflow: Go.yml

@@ -1,64 +1,62 @@
 metadata:
-  name: "Lua (OpenResty)"
-  description: "Implementation of MagnetarYggdrasil using Lua and OpenResty."
-  start_date: "2024-05-22"
-
+  name: Lua (OpenResty)
+  description: Implementation of MagnetarYggdrasil using Lua and OpenResty.
+  start_date: '2024-05-22'
 stakeholders:
-  - name: "Jules"
-    role: "Developer"
-
+- name: Jules
+  role: Developer
 milestones:
-  - id: "ms-01"
-    name: "Project Setup"
-    target_date: "2024-05-22"
-  - id: "ms-02"
-    name: "Implementation"
-    target_date: "2024-05-22"
-  - id: "ms-03"
-    name: "Testing"
-    target_date: "2024-05-22"
-  - id: "ms-04"
-    name: "Finalization"
-    target_date: "2024-05-22"
-
+- id: ms-01
+  name: Project Setup
+  target_date: '2024-05-22'
+- id: ms-02
+  name: Implementation
+  target_date: '2024-05-22'
+- id: ms-03
+  name: Testing
+  target_date: '2024-05-22'
+- id: ms-04
+  name: Finalization
+  target_date: '2024-05-22'
 tasks:
-  - id: "task-001"
-    title: "Create Canonical Files"
-    owner: "Jules"
-    state: "in_progress"
-  - id: "task-002"
-    title: "Create Directory Structure"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-003"
-    title: "Implement DB Schema & Migration"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-004"
-    title: "Implement User API"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-005"
-    title: "Implement Task API"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-006"
-    title: "Implement System API"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-007"
-    title: "Implement Unit Tests"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-008"
-    title: "Implement Integration Tests"
-    owner: "Jules"
-    state: "planned"
-  - id: "task-009"
-    title: "Create README_RUN.md"
-    owner: "Jules"
-    state: "planned"
-
+- id: task-001
+  title: Create Canonical Files
+  owner: Jules
+  state: in_progress
+- id: task-002
+  title: Create Directory Structure
+  owner: Jules
+  state: planned
+- id: task-003
+  title: Implement DB Schema & Migration
+  owner: Jules
+  state: planned
+- id: task-004
+  title: Implement User API
+  owner: Jules
+  state: planned
+- id: task-005
+  title: Implement Task API
+  owner: Jules
+  state: planned
+- id: task-006
+  title: Implement System API
+  owner: Jules
+  state: planned
+- id: task-007
+  title: Implement Unit Tests
+  owner: Jules
+  state: planned
+- id: task-008
+  title: Implement Integration Tests
+  owner: Jules
+  state: planned
+- id: task-009
+  title: Create README_RUN.md
+  owner: Jules
+  state: planned
 risks:
-  - description: "SQLite driver compatibility with OpenResty"
+- description: SQLite driver compatibility with OpenResty
 reporting: []
+validation:
+  workflow: LuaOpenResty.yml

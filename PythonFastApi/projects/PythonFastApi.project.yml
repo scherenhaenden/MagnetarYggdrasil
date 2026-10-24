@@ -1,0 +1,4 @@
+metadata:
+  name: PythonFastApi
+validation:
+  workflow: PythonFastApi.yml

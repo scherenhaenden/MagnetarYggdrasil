@@ -1,0 +1,4 @@
+metadata:
+  name: JavaGraalVM
+validation:
+  workflow: JavaGraalVM.yml
